@@ -1,0 +1,17 @@
+[
+  {
+    "version": "1.0.3",
+    "date": "2026-01-06",
+    "changes": [
+      "Added full password reset flow (forgot password screen, reset screen, secure link handling).",
+      "Deep link route: maliya://auth-callback routes into reset password.",
+      "Apple sign-in uses official button UI; Google sign-in button rebuilt to match sizing/spacing.",
+      "Added share-sheet ingestion for PDF statements (opens Statements flow).",
+      "Improved statement cards fetch reliability with retries and clearer error state.",
+      "Password-protected PDF UX improved (prompt handling + messaging).",
+      "Notification test tools hidden in release builds; only debug/flag shows.",
+      "iOS: added maliya URL scheme alongside existing com.maliya; LSHandlerRank for PDFs.",
+      "Android: enabled core library desugaring."
+    ]
+  }
+]
