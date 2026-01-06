@@ -1,0 +1,121 @@
+You are a senior product designer + full-stack engineer.
+
+Goal
+Build a production-quality “Teaser Web App” (marketing landing site) for Maliya — an AI-Powered Personal Finance Assistant for UAE users. This is NOT the core product app; it’s a public-facing teaser site that explains the value, showcases features, builds trust, and collects early-access signups.
+
+Core requirements (must follow)
+1) Output a complete web app codebase in a single response:
+   - Use Next.js (App Router) + TypeScript.
+   - Styling: Tailwind CSS.
+   - Use a clean minimalist design (premium feel).
+   - Include responsive design (mobile-first).
+   - Include light/dark mode toggle.
+   - Include subtle animations (Framer Motion).
+   - Include SEO: metadata, OpenGraph, Twitter cards, sitemap, robots.
+   - Include accessibility basics: proper headings, aria labels, contrast.
+   - Include a simple environment-based config file for links/brand text.
+
+2) Teaser site focus:
+   - Provide strong “what it is”, “why it matters”, “how it works”.
+   - Provide multiple “screenshot placeholders” where app screenshots will be added later.
+   - Provide a waitlist/early access signup form (frontend + API route + storage).
+     Storage can be:
+       Option A: simple JSON file storage for local dev (no external deps).
+       Option B: SQLite via Prisma (preferred if you can keep it simple).
+     Include basic bot protection (honeypot field + rate limit in-memory).
+   - Provide a “TestFlight / Beta” CTA section with placeholders (do not include real links, use config placeholders).
+   - Provide a “Changelog / What’s New” section (based on v1.0.2+3 items below).
+   - Provide trust/privacy copy emphasizing user control and secure handling (no exaggerated claims).
+   - Provide a FAQ section targeted to UAE users.
+
+3) Screenshot placeholders (must include)
+   - A hero device mock section with 1 large screenshot placeholder.
+   - A “Feature gallery” with 6 screenshot placeholder cards:
+     (a) Overview dashboard
+     (b) Statement import / Share Sheet
+     (c) Statement processing status / reliability
+     (d) Forgot password / reset flow
+     (e) Merchants & insights
+     (f) Notifications (future-ready)
+   - Each placeholder must be implemented as a component that can later swap to real images easily:
+     - Accept props: title, description, aspectRatio, “tag” label.
+     - Use a tasteful skeleton/blur pattern background.
+
+4) Content and positioning (must align with Maliya)
+   - Maliya tagline: “AI-Powered Personal Finance Assistant”
+   - Key feature bullets must include:
+     - Import PDF bank statements directly (Share Sheet on mobile).
+     - Reliable statement loading and clearer errors.
+     - Better handling of password-protected PDFs.
+     - Secure forgot password / reset password flow (deep link handling ready).
+     - Polished Apple + Google sign-in experience.
+     - Insights-ready processing pipeline (describe generally, no sensitive architecture).
+   - Tone: premium, minimalist, confident, not hype-y. Avoid “guarantees”.
+
+5) Pages / routes (must include)
+   - /
+     - Hero + CTA (Join waitlist)
+     - Social proof placeholder row (logos placeholder)
+     - Feature highlights
+     - Screenshot gallery
+     - “How it works” steps
+     - Privacy & trust snippet
+     - CTA block
+     - Footer
+   - /product
+     - Deeper feature descriptions + screenshot placeholders + mini use cases
+   - /security
+     - Security and privacy overview (plain language), data handling principles, user rights, disclaimers
+   - /changelog
+     - Render from a local markdown or JSON file in repo
+   - /waitlist
+     - Dedicated page for signups and “thank you” state
+   - /press (optional but nice)
+     - Brand assets placeholders, short boilerplate, contact form placeholder
+
+6) What’s New (use as changelog seed content)
+   - Added full password reset flow (forgot password screen, reset screen, secure link handling).
+   - Deep link route: maliya://auth-callback routes into reset password.
+   - Apple sign-in uses official button UI; Google sign-in button rebuilt to match sizing/spacing.
+   - Added share-sheet ingestion for PDF statements (opens Statements flow).
+   - Improved statement cards fetch reliability with retries and clearer error state.
+   - Password-protected PDF UX improved (prompt handling + messaging).
+   - Notification test tools hidden in release builds; only debug/flag shows.
+   - iOS: added maliya URL scheme alongside existing com.maliya; LSHandlerRank for PDFs.
+   - Android: enabled core library desugaring.
+
+7) Components (must implement)
+   - Navbar with animated underline active link
+   - Hero section with device mock and CTA
+   - FeatureCards grid
+   - ScreenshotPlaceholder component (as described)
+   - Testimonials placeholder (3 cards)
+   - FAQ accordion
+   - Pricing section (must be “Coming soon” / “Free during beta” placeholder)
+   - Waitlist form component:
+     - fields: email (required), name (optional), platform (iOS/Android/Web), emirate (optional), what_you_want (optional textarea)
+     - consent checkbox (required): “I agree to be contacted about early access”
+     - honeypot field hidden
+     - success + error states
+   - Footer with links and disclaimer
+
+8) Implementation details
+   - Provide clear file structure.
+   - Provide instructions to run locally (pnpm preferred).
+   - Provide a minimal design system:
+     - typography scale, spacing, container widths
+     - button variants: primary, secondary, ghost
+   - Include a simple analytics hook placeholder (no real tracking ID).
+   - Do NOT hardcode real backend keys or Supabase keys. Use env placeholders.
+
+9) Output format
+   - First: brief explanation of architecture and how to run.
+   - Then: the full code (all relevant files) with correct paths and contents.
+   - Ensure it compiles.
+
+Brand details
+- Product name: Maliya
+- Market: UAE (English copy)
+- Style: premium minimalist, modern fintech feel, calm color palette (but do not specify exact colors unless needed; use Tailwind neutrals and one accent).
+
+Deliver now: generate the complete Next.js app with all pages, components, and waitlist storage.
