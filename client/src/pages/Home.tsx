@@ -11,6 +11,13 @@ const dashboardImg = "/images/dashboard-overview.png";
 const insightsImg = "/images/insights-stats.png";
 const spendingImg = "/images/spending-trend.png";
 
+const bankLogos = [
+  { name: "ADCB", src: "/images/adcb.png" },
+  { name: "ENBD", src: "/images/enbd.png" },
+  { name: "FAB", src: "/images/fab.webp" },
+  { name: "HSBC", src: "/images/hsbc.svg" },
+];
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/20">
@@ -54,7 +61,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10 text-balance"
             >
-              Maliya connects to your accounts, categorizes your spending, and gives you actionable insights to build wealth. Smart, secure, and simple.
+              Maliya turns your uploaded PDF bank statements into categorized spending and actionable insights to build wealth. Smart, secure, and simple.
             </motion.p>
 
             <motion.div 
@@ -96,15 +103,12 @@ export default function Home() {
         <section className="py-12 border-y border-border/50 bg-muted/20">
           <div className="container mx-auto px-4 text-center">
             <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-8">
-              Seamlessly connects with
+              Supports statements from
             </p>
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-              {/* Using text placeholders for bank logos to be safe, but styled nicely */}
-              <div className="text-xl font-bold font-display">ENBD</div>
-              <div className="text-xl font-bold font-display">ADCB</div>
-              <div className="text-xl font-bold font-display">Mashreq</div>
-              <div className="text-xl font-bold font-display">FAB</div>
-              <div className="text-xl font-bold font-display">Revolut</div>
+              {bankLogos.map((logo) => (
+                <BankLogo key={logo.name} name={logo.name} src={logo.src} />
+              ))}
             </div>
           </div>
         </section>
@@ -117,7 +121,7 @@ export default function Home() {
                 Financial clarity in your pocket
               </h2>
               <p className="text-lg text-muted-foreground">
-                Stop guessing where your money goes. Maliya brings all your accounts into one beautiful, intelligent view.
+                Stop guessing where your money goes. Maliya turns your statements into one beautiful, intelligent view.
               </p>
             </div>
 
@@ -125,17 +129,17 @@ export default function Home() {
               <FeatureCard 
                 icon={<Zap className="w-8 h-8 text-yellow-500" />}
                 title="Smart Categorization"
-                description="Our AI automatically tags your transactions with 95% accuracy, so you don't have to."
+                description="Our AI automatically tags transactions from your PDF statements with 95% accuracy, so you don't have to."
               />
               <FeatureCard 
                 icon={<ShieldCheck className="w-8 h-8 text-primary" />}
                 title="Bank-Grade Security"
-                description="We use 256-bit encryption and read-only access. Your money never moves without you."
+                description="We encrypt uploaded statements and keep access read-only. We never move money or change bank settings."
               />
               <FeatureCard 
                 icon={<Globe className="w-8 h-8 text-blue-500" />}
                 title="Regional Focus"
-                description="Built specifically for the UAE market, handling local banks and spending habits perfectly."
+                description="Built specifically for the UAE market, tuned for local bank statement formats and spending habits."
               />
             </div>
 
@@ -202,13 +206,13 @@ export default function Home() {
 
               <StepCard 
                 number="01"
-                title="Connect Accounts"
-                description="Securely link your bank accounts and credit cards with read-only access."
+                title="Upload Statements"
+                description="Upload PDF bank statements from your accounts. No bank logins required."
               />
               <StepCard 
                 number="02"
                 title="AI Analysis"
-                description="Our engine categorizes 12 months of history to build your financial profile."
+                description="Our engine categorizes statement history to build your financial profile."
               />
               <StepCard 
                 number="03"
@@ -280,5 +284,14 @@ function CheckItem({ text }: { text: string }) {
       </div>
       <span className="font-medium">{text}</span>
     </li>
+  );
+}
+
+function BankLogo({ name, src }: { name: string; src: string }) {
+  return (
+    <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-background/60 border border-border/50 shadow-sm">
+      <img src={src} alt={`${name} logo`} className="h-6 w-auto object-contain" />
+      <span className="text-sm font-semibold tracking-wide text-foreground/80">{name}</span>
+    </div>
   );
 }

@@ -38,9 +38,11 @@ export function Navbar() {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-display font-bold text-xl group-hover:scale-105 transition-transform">
-            M
-          </div>
+          <img
+            src="/app_icon.png"
+            alt="Maliya logo"
+            className="w-8 h-8 rounded-lg object-cover group-hover:scale-105 transition-transform"
+          />
           <span className="font-display font-bold text-xl tracking-tight text-foreground">
             Maliya
           </span>

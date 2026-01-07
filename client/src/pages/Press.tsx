@@ -21,8 +21,8 @@ export default function Press() {
               <div className="prose prose-lg dark:prose-invert text-muted-foreground">
                 <p>
                   Maliya is an AI-powered personal finance assistant built for the modern generation in the UAE. 
-                  Founded in 2024, our mission is to simplify wealth management by unifying bank accounts, 
-                  analyzing spending patterns, and providing actionable insights for financial growth.
+                  Founded in 2025, our mission is to simplify wealth management by turning uploaded bank statements 
+                  into clear spending patterns and actionable insights for financial growth.
                 </p>
               </div>
             </section>
@@ -31,9 +31,11 @@ export default function Press() {
               <h2 className="text-2xl font-bold font-display mb-6">Brand Assets</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="p-8 border border-border/50 rounded-2xl bg-card flex flex-col items-center text-center">
-                  <div className="w-24 h-24 bg-primary rounded-2xl flex items-center justify-center text-white font-display font-bold text-4xl mb-6">
-                    M
-                  </div>
+                  <img
+                    src="/app_icon.png"
+                    alt="Maliya logomark"
+                    className="w-24 h-24 rounded-2xl object-cover mb-6"
+                  />
                   <h3 className="font-bold mb-2">Logomark</h3>
                   <Button variant="outline" size="sm" className="mt-4">
                     <Download className="w-4 h-4 mr-2" /> Download SVG

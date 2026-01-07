@@ -5,23 +5,23 @@ import { Badge } from "@/components/ui/badge";
 const changes = [
   {
     version: "v1.0.2",
-    date: "December 15, 2024",
+    date: "February 15, 2026",
     title: "Enhanced Merchant Identification",
     description: "We've improved our AI model to better recognize local UAE merchants, reducing 'Uncategorized' transactions by 40%.",
     tags: ["Improvement", "AI"]
   },
   {
     version: "v1.0.1",
-    date: "December 1, 2024",
+    date: "January 10, 2026",
     title: "Dark Mode Support",
     description: "Maliya now fully supports system-level dark mode for better viewing at night.",
     tags: ["New Feature", "UI"]
   },
   {
     version: "v1.0.0",
-    date: "November 15, 2024",
+    date: "December 15, 2025",
     title: "Initial Beta Release",
-    description: "The first version of Maliya is live for beta testers! Connect accounts, view insights, and track spending.",
+    description: "The first version of Maliya is live for beta testers! Upload PDF statements, view insights, and track spending.",
     tags: ["Release"]
   }
 ];

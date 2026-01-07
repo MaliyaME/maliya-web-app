@@ -33,11 +33,11 @@ export default function Product() {
                 <div className="uppercase text-sm font-bold tracking-wider text-primary mb-2">Unified Dashboard</div>
                 <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">All your accounts, one place</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  No more switching between bank apps. Connect all your current accounts, savings, and credit cards to see your total net worth in real-time.
+                  No more switching between bank apps. Upload PDF statements from your current accounts, savings, and credit cards to see your total net worth at a glance.
                 </p>
                 <div className="p-6 bg-muted/30 rounded-2xl border border-border/50">
-                  <h4 className="font-bold mb-2">Supported Institutions</h4>
-                  <p className="text-sm text-muted-foreground">Currently supporting major UAE banks including ENBD, ADCB, FAB, and more coming soon.</p>
+                  <h4 className="font-bold mb-2">Supported Statement Sources</h4>
+                  <p className="text-sm text-muted-foreground">Currently supporting PDF statements from major UAE banks including ENBD, ADCB, FAB, and more coming soon.</p>
                 </div>
               </div>
               <motion.div 

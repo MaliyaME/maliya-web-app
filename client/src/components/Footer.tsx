@@ -9,9 +9,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-6 h-6 rounded bg-primary flex items-center justify-center text-white font-display font-bold text-sm">
-                M
-              </div>
+              <img
+                src="/app_icon.png"
+                alt="Maliya logo"
+                className="w-6 h-6 rounded object-cover"
+              />
               <span className="font-display font-bold text-lg text-foreground">
                 Maliya
               </span>

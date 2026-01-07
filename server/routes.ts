@@ -1,15 +1,25 @@
-import type { Express } from "express";
+import type { Express, NextFunction } from "express";
 import type { Server } from "http";
 import { storage } from "./storage";
 import { api } from "@shared/routes";
 import { z } from "zod";
+
+type StorageError = {
+  code?: string;
+  message?: string;
+  details?: string;
+};
+
+function isStorageError(error: unknown): error is StorageError {
+  return Boolean(error && typeof error === "object");
+}
 
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
   
-  app.post(api.waitlist.signup.path, async (req, res) => {
+  app.post(api.waitlist.signup.path, async (req, res, next: NextFunction) => {
     try {
       const input = api.waitlist.signup.input.parse(req.body);
 
@@ -34,7 +44,12 @@ export async function registerRoutes(
           field: err.errors[0].path.join('.'),
         });
       }
-      throw err;
+      if (isStorageError(err) && err.code === "23505") {
+        return res.status(409).json({ message: "Email already registered on the waitlist." });
+      }
+
+      console.error("Waitlist signup failed:", err);
+      return res.status(500).json({ message: "Unable to submit waitlist right now." });
     }
   });
 

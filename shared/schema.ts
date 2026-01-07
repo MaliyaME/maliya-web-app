@@ -6,8 +6,6 @@ export const waitlistSignups = pgTable("waitlist_signups", {
   id: serial("id").primaryKey(),
   email: text("email").notNull().unique(),
   name: text("name"),
-  platform: text("platform"), // iOS, Android, Web
-  emirate: text("emirate"),
   message: text("message"), // what_you_want
   consent: boolean("consent").default(false).notNull(),
   createdAt: timestamp("created_at").defaultNow(),

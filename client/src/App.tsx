@@ -10,6 +10,8 @@ import Waitlist from "@/pages/Waitlist";
 import Changelog from "@/pages/Changelog";
 import Security from "@/pages/Security";
 import Press from "@/pages/Press";
+import Privacy from "@/pages/Privacy";
+import Terms from "@/pages/Terms";
 
 function Router() {
   return (
@@ -20,6 +22,8 @@ function Router() {
       <Route path="/changelog" component={Changelog} />
       <Route path="/security" component={Security} />
       <Route path="/press" component={Press} />
+      <Route path="/privacy" component={Privacy} />
+      <Route path="/terms" component={Terms} />
       {/* Fallback to 404 */}
       <Route component={NotFound} />
     </Switch>

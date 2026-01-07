@@ -8,7 +8,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Loader2, ArrowRight } from "lucide-react";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { motion } from "framer-motion";
 
 export function WaitlistForm() {
@@ -19,8 +18,6 @@ export function WaitlistForm() {
     defaultValues: {
       email: "",
       name: "",
-      platform: "",
-      emirate: "",
       message: "",
       consent: false,
       honey: "",
@@ -90,57 +87,6 @@ export function WaitlistForm() {
             </FormItem>
           )}
         />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Platform Selection */}
-          <FormField
-            control={form.control}
-            name="platform"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Preferred Platform</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value || undefined}>
-                  <FormControl>
-                    <SelectTrigger className="rounded-xl h-12 bg-background/50">
-                      <SelectValue placeholder="Select..." />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="iOS">iOS (iPhone)</SelectItem>
-                    <SelectItem value="Android">Android</SelectItem>
-                    <SelectItem value="Web">Web Browser</SelectItem>
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          {/* Emirate Selection */}
-          <FormField
-            control={form.control}
-            name="emirate"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Emirate (Optional)</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value || undefined}>
-                  <FormControl>
-                    <SelectTrigger className="rounded-xl h-12 bg-background/50">
-                      <SelectValue placeholder="Select..." />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="Dubai">Dubai</SelectItem>
-                    <SelectItem value="Abu Dhabi">Abu Dhabi</SelectItem>
-                    <SelectItem value="Sharjah">Sharjah</SelectItem>
-                    <SelectItem value="Other">Other / International</SelectItem>
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
 
         {/* Message Field */}
         <FormField

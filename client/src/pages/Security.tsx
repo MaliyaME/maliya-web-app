@@ -30,7 +30,7 @@ export default function Security() {
             <SecurityCard 
               icon={<EyeOff className="w-6 h-6" />}
               title="Read-Only Access"
-              description="Maliya only has read-only access to your financial data. We cannot move money, make transfers, or change your settings."
+              description="Maliya only has read-only access to your financial data. We analyze the PDF statements you upload and never connect directly to your bank. We cannot move money, make transfers, or change your settings."
             />
             <SecurityCard 
               icon={<Server className="w-6 h-6" />}

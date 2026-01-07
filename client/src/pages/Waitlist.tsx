@@ -19,9 +19,11 @@ export default function Waitlist() {
           </Link>
           
           <div className="flex items-center gap-2 mb-8">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-display font-bold text-xl">
-              M
-            </div>
+            <img
+              src="/app_icon.png"
+              alt="Maliya logo"
+              className="w-8 h-8 rounded-lg object-cover"
+            />
             <span className="font-display font-bold text-xl tracking-tight">Maliya</span>
           </div>
 
