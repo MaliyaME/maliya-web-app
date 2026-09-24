@@ -8,7 +8,7 @@ export default function Security() {
       <Navbar />
       
       <main className="pt-32 pb-20">
-        <div className="container mx-auto px-4 max-w-4xl">
+        <div className="page-container max-w-4xl">
           <div className="text-center mb-16">
             <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
               <Shield className="w-8 h-8" />
@@ -17,30 +17,30 @@ export default function Security() {
               Security First. Always.
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              We know that trust is everything when it comes to your money. Here's how we keep your data safe.
+              Maliya minimizes the data boundary instead of asking for access to your bank account.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             <SecurityCard 
               icon={<Lock className="w-6 h-6" />}
-              title="Bank-Grade Encryption"
-              description="We use AES-256 encryption for all data at rest and TLS 1.3 for data in transit. This is the same standard used by major financial institutions."
+              title="App-Private Storage"
+              description="Your statement PDFs, local ledger, corrections, and notes stay in the app's private storage and are excluded from operating-system backup. There is no account sync or cloud recovery."
             />
             <SecurityCard 
               icon={<EyeOff className="w-6 h-6" />}
-              title="Read-Only Access"
-              description="Maliya only has read-only access to your financial data. We analyze the PDF statements you upload and never connect directly to your bank. We cannot move money, make transfers, or change your settings."
+              title="No Bank Credentials"
+              description="You choose statement files yourself. Maliya never connects to your bank, asks for a bank login, moves money, makes transfers, or changes account settings."
             />
             <SecurityCard 
               icon={<Server className="w-6 h-6" />}
-              title="Local Data Compliance"
-              description="We comply with UAE data protection regulations. Your sensitive financial data is processed securely."
+              title="Checked Imports"
+              description="The built-in reader processes supported PDFs on the device. A statement is only added after extracted figures reconcile with its printed totals, and PDF passwords are never saved."
             />
             <SecurityCard 
               icon={<Shield className="w-6 h-6" />}
-              title="Regular Audits"
-              description="Our systems undergo regular security audits and penetration testing to identify and patch vulnerabilities immediately."
+              title="Clear Sharing Boundary"
+              description="PDFs and separate transaction fields are not sent to the merchant service. When enabled, eligible bank-printed descriptions and a fingerprint are shared for merchant identification only after an upfront disclosure."
             />
           </div>
 

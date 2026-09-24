@@ -9,7 +9,7 @@ export default function Press() {
       <Navbar />
       
       <main className="pt-32 pb-20">
-        <div className="container mx-auto px-4 max-w-4xl">
+        <div className="page-container max-w-4xl">
           <h1 className="text-4xl md:text-5xl font-display font-bold mb-6">Press Kit</h1>
           <p className="text-xl text-muted-foreground mb-12">
             Assets, logos, and resources for media coverage.
@@ -20,9 +20,7 @@ export default function Press() {
               <h2 className="text-2xl font-bold font-display mb-6">About Maliya</h2>
               <div className="prose prose-lg dark:prose-invert text-muted-foreground">
                 <p>
-                  Maliya is an AI-powered personal finance assistant built for the modern generation in the UAE. 
-                  Founded in 2025, our mission is to simplify wealth management by turning uploaded bank statements 
-                  into clear spending patterns and actionable insights for financial growth.
+                  Maliya is a private spending companion built for supported UAE credit card statements. It reads PDFs on the device, checks extracted figures against printed totals, and turns complete statement history into monthly comparisons, spending stories, searchable activity, wellness factors, and evidence-backed answers. Maliya is free on the App Store; its Google Play listing is coming soon.
                 </p>
               </div>
             </section>
@@ -32,23 +30,29 @@ export default function Press() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="p-8 border border-border/50 rounded-2xl bg-card flex flex-col items-center text-center">
                   <img
-                    src="/app_icon.png"
+                    src="/maliya-icon.svg"
                     alt="Maliya logomark"
                     className="w-24 h-24 rounded-2xl object-cover mb-6"
                   />
                   <h3 className="font-bold mb-2">Logomark</h3>
-                  <Button variant="outline" size="sm" className="mt-4">
-                    <Download className="w-4 h-4 mr-2" /> Download SVG
+                  <Button asChild variant="outline" size="sm" className="mt-4">
+                    <a href="/maliya-icon.svg" download="maliya-icon.svg">
+                      <Download className="w-4 h-4 mr-2" /> Download SVG
+                    </a>
                   </Button>
                 </div>
 
                 <div className="p-8 border border-border/50 rounded-2xl bg-card flex flex-col items-center text-center">
-                  <div className="h-24 flex items-center justify-center mb-6">
-                     <span className="font-display font-bold text-3xl">Maliya</span>
-                  </div>
-                  <h3 className="font-bold mb-2">Wordmark</h3>
-                  <Button variant="outline" size="sm" className="mt-4">
-                    <Download className="w-4 h-4 mr-2" /> Download SVG
+                  <img
+                    src="/app_icon.png"
+                    alt="Maliya app icon"
+                    className="w-24 h-24 rounded-2xl object-cover mb-6"
+                  />
+                  <h3 className="font-bold mb-2">App Icon</h3>
+                  <Button asChild variant="outline" size="sm" className="mt-4">
+                    <a href="/app_icon.png" download="maliya-app-icon.png">
+                      <Download className="w-4 h-4 mr-2" /> Download PNG
+                    </a>
                   </Button>
                 </div>
               </div>

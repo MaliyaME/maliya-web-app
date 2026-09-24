@@ -97,7 +97,7 @@ export function WaitlistForm() {
               <FormLabel>What are you looking for most?</FormLabel>
               <FormControl>
                 <Textarea 
-                  placeholder="e.g. Better expense tracking, investment insights..." 
+                  placeholder="e.g. Clearer monthly comparisons, merchant breakdowns..."
                   className="rounded-xl min-h-[100px] resize-none bg-background/50" 
                   {...field} 
                   value={field.value || ''}

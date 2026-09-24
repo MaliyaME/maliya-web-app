@@ -1,5 +1,12 @@
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
+import { initializeTheme, ThemeProvider } from "@/hooks/use-theme";
 
-createRoot(document.getElementById("root")!).render(<App />);
+initializeTheme();
+
+createRoot(document.getElementById("root")!).render(
+  <ThemeProvider>
+    <App />
+  </ThemeProvider>,
+);

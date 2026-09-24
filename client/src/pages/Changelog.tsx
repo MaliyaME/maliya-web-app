@@ -4,25 +4,16 @@ import { Badge } from "@/components/ui/badge";
 
 const changes = [
   {
-    version: "v1.0.2",
-    date: "February 15, 2026",
-    title: "Enhanced Merchant Identification",
-    description: "We've improved our AI model to better recognize local UAE merchants, reducing 'Uncategorized' transactions by 40%.",
-    tags: ["Improvement", "AI"]
+    status: "Available now",
+    title: "Maliya on the App Store",
+    description: "Maliya is free to download for iPhone. Explore spending from supported credit card statements without a bank login or an app account.",
+    tags: ["iPhone", "Free"]
   },
   {
-    version: "v1.0.1",
-    date: "January 10, 2026",
-    title: "Dark Mode Support",
-    description: "Maliya now fully supports system-level dark mode for better viewing at night.",
-    tags: ["New Feature", "UI"]
-  },
-  {
-    version: "v1.0.0",
-    date: "December 15, 2025",
-    title: "Initial Beta Release",
-    description: "The first version of Maliya is live for beta testers! Upload PDF statements, view insights, and track spending.",
-    tags: ["Release"]
+    status: "Coming soon",
+    title: "Maliya on Google Play",
+    description: "The Android store listing is not public yet. Check back here for its download link.",
+    tags: ["Android"]
   }
 ];
 
@@ -32,10 +23,10 @@ export default function Changelog() {
       <Navbar />
       
       <main className="pt-32 pb-20">
-        <div className="container mx-auto px-4 max-w-3xl">
+        <div className="page-container max-w-3xl">
           <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">What's New</h1>
           <p className="text-lg text-muted-foreground mb-16">
-            Latest updates, improvements, and fixes from the Maliya team.
+            Where to get Maliya and what is coming next.
           </p>
 
           <div className="relative border-l border-border/50 ml-4 md:ml-0 space-y-16">
@@ -45,8 +36,7 @@ export default function Changelog() {
                 <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-primary ring-4 ring-background" />
                 
                 <div className="flex flex-col md:flex-row md:items-center gap-4 mb-4">
-                  <span className="font-mono text-sm text-muted-foreground">{item.date}</span>
-                  <Badge variant="secondary" className="w-fit">{item.version}</Badge>
+                  <Badge variant="secondary" className="w-fit">{item.status}</Badge>
                 </div>
                 
                 <h2 className="text-2xl font-bold font-display mb-3">{item.title}</h2>

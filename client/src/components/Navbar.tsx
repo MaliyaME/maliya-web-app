@@ -1,8 +1,9 @@
 import { Link, useLocation } from "wouter";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { useTheme } from "@/hooks/use-theme";
 
 const links = [
   { href: "/", label: "Overview" },
@@ -15,6 +16,7 @@ export function Navbar() {
   const [location] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { isDark, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -35,7 +37,7 @@ export function Navbar() {
           : "bg-transparent"
       )}
     >
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+      <div className="page-container h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
           <img
@@ -69,26 +71,32 @@ export function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-4">
-          <Link href="/waitlist">
+          <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
+          <Link href="/download">
             <Button variant={isScrolled ? "default" : "secondary"} className="font-semibold rounded-xl">
-              Join Waitlist
+              Get the App
             </Button>
           </Link>
         </div>
 
         {/* Mobile Toggle */}
-        <button
-          className="md:hidden p-2 text-foreground"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X /> : <Menu />}
-        </button>
+        <div className="md:hidden flex items-center gap-1">
+          <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
+          <button
+            type="button"
+            aria-label={mobileMenuOpen ? "Close navigation" : "Open navigation"}
+            className="p-2 text-foreground"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-background border-b border-border/50 animate-in slide-in-from-top-5">
-          <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
+          <div className="page-container py-4 flex flex-col gap-4">
             {links.map((link) => (
               <Link 
                 key={link.href} 
@@ -104,12 +112,27 @@ export function Navbar() {
               </Link>
             ))}
             <div className="h-px bg-border/50 my-2" />
-            <Link href="/waitlist">
-              <Button className="w-full text-lg h-12 rounded-xl">Join Waitlist</Button>
+            <Link href="/download">
+              <Button className="w-full text-lg h-12 rounded-xl">Get the App</Button>
             </Link>
           </div>
         </div>
       )}
     </header>
+  );
+}
+
+function ThemeToggle({ isDark, onToggle }: { isDark: boolean; onToggle: () => void }) {
+  const label = isDark ? "Use light mode" : "Use dark mode";
+  return (
+    <button
+      type="button"
+      aria-label={label}
+      title={label}
+      onClick={onToggle}
+      className="h-10 w-10 rounded-full border border-border/70 bg-background/60 text-foreground inline-flex items-center justify-center hover:bg-muted transition-colors"
+    >
+      {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+    </button>
   );
 }

@@ -1,30 +1,25 @@
 import { cn } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
-import { motion } from "framer-motion";
+import { useTheme } from "@/hooks/use-theme";
 
 interface ScreenshotPlaceholderProps {
   imageSrc?: string;
+  darkImageSrc?: string;
   alt: string;
   className?: string;
   overlay?: boolean;
 }
 
-export function ScreenshotPlaceholder({ imageSrc, alt, className, overlay = true }: ScreenshotPlaceholderProps) {
+export function ScreenshotPlaceholder({ imageSrc, darkImageSrc, alt, className, overlay = true }: ScreenshotPlaceholderProps) {
+  const { isDark } = useTheme();
+
   if (imageSrc) {
     return (
-      <div className={cn("relative group rounded-3xl overflow-hidden border border-border/50 shadow-2xl bg-background", className)}>
-        {/* Browser chrome / Header bar */}
-        <div className="absolute top-0 left-0 right-0 h-8 bg-muted/80 backdrop-blur-sm border-b border-border/50 flex items-center px-4 gap-2 z-10">
-          <div className="w-3 h-3 rounded-full bg-red-400/80" />
-          <div className="w-3 h-3 rounded-full bg-yellow-400/80" />
-          <div className="w-3 h-3 rounded-full bg-green-400/80" />
-        </div>
-        
-        {/* Actual Image from user assets */}
+      <div className={cn("relative mx-auto w-full max-w-[300px] sm:max-w-[320px] lg:max-w-[340px] rounded-[2.5rem] overflow-hidden border-[6px] border-foreground/20 shadow-2xl bg-background", className)}>
         <img 
-          src={imageSrc} 
+          src={isDark && darkImageSrc ? darkImageSrc : imageSrc}
           alt={alt} 
-          className="w-full h-auto mt-8 object-cover" 
+          className="w-full h-auto object-cover"
           loading="lazy"
         />
 

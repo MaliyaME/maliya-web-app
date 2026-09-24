@@ -7,12 +7,12 @@ export default function Terms() {
       <Navbar />
 
       <main className="pt-32 pb-20">
-        <div className="container mx-auto px-4 max-w-3xl">
+        <div className="page-container max-w-3xl">
           <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">
             Terms of Service
           </h1>
           <p className="text-sm text-muted-foreground mb-10">
-            Last updated: December 15, 2025
+            Last updated: September 23, 2026
           </p>
 
           <div className="space-y-10 text-muted-foreground leading-relaxed">
@@ -31,20 +31,21 @@ export default function Terms() {
                 The service
               </h2>
               <p>
-                Maliya provides read-only insights from the PDF bank statements
-                you upload. We do not connect directly to banks, move money, make
-                transfers, or change your settings.
+                Maliya reads supported credit card statement PDFs you choose and
+                creates an informational spending ledger on your device. We do not
+                connect directly to banks, ask for bank credentials, move money,
+                make transfers, or change bank settings.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold font-display text-foreground mb-3">
-                Eligibility and accounts
+                Eligibility and device access
               </h2>
               <p>
-                You must be at least 18 years old and provide accurate
-                information. You are responsible for activity that happens under
-                your account.
+                You must be at least 18 years old. Maliya does not require an app
+                account; you are responsible for access to your device, local app
+                data, and any exports you create.
               </p>
             </section>
 
@@ -53,9 +54,22 @@ export default function Terms() {
                 Your content
               </h2>
               <p>
-                You own your uploaded statements. You grant Maliya a limited
-                license to process them solely to provide the service. Do not
-                upload data you do not have permission to share.
+                You retain rights in the statements and data you choose. Statement
+                PDFs, the ledger, corrections, and notes remain in app-private
+                storage. Do not process data you do not have permission to use.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold font-display text-foreground mb-3">
+                Merchant identification
+              </h2>
+              <p>
+                When the connected merchant service is enabled, Maliya shares
+                eligible bank-printed descriptions and a fingerprint under the
+                disclosure shown before file selection. Shared descriptions may be
+                retained permanently and cannot be retrieved or deleted in the app.
+                See the Privacy Policy for the full boundary.
               </p>
             </section>
 
@@ -65,7 +79,7 @@ export default function Terms() {
               </h2>
               <ul className="list-disc pl-5 space-y-2">
                 <li>Attempting to access systems or data without authorization.</li>
-                <li>Uploading malware or harmful content.</li>
+                <li>Providing malicious or harmful files.</li>
                 <li>Using the service for unlawful activities.</li>
               </ul>
             </section>

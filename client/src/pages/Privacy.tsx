@@ -7,12 +7,12 @@ export default function Privacy() {
       <Navbar />
 
       <main className="pt-32 pb-20">
-        <div className="container mx-auto px-4 max-w-3xl">
+        <div className="page-container max-w-3xl">
           <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">
             Privacy Policy
           </h1>
           <p className="text-sm text-muted-foreground mb-10">
-            Last updated: December 15, 2025
+            Last updated: September 23, 2026
           </p>
 
           <div className="space-y-10 text-muted-foreground leading-relaxed">
@@ -21,27 +21,31 @@ export default function Privacy() {
                 Overview
               </h2>
               <p>
-                Maliya helps you understand your finances by analyzing the PDF
-                bank statements you upload. This policy explains what we collect,
-                how we use it, and your choices.
+                Maliya helps you understand spending from supported credit card
+                statement PDFs. The app keeps your statements and ledger on your
+                device. This website previously operated an early-access waitlist;
+                this policy explains both boundaries.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold font-display text-foreground mb-3">
-                Information we collect
+                Information and data involved
               </h2>
               <ul className="list-disc pl-5 space-y-2">
                 <li>
-                  Waitlist details such as name, email, and optional notes.
+                  Details previously submitted to the waitlist, such as email,
+                  optional name and message, consent choice, and signup time.
                 </li>
                 <li>
-                  PDF bank statements you upload and the transaction data we
-                  extract from them.
+                  App-private data you choose in Maliya, including statement PDFs,
+                  the local ledger, corrections, and notes. This data stays on your
+                  device and is not collected by this website.
                 </li>
                 <li>
-                  Basic usage and device information needed to operate and secure
-                  the service.
+                  When merchant identification is enabled, eligible bank-printed
+                  descriptions and a fingerprint. Descriptions can contain names,
+                  references, dates, amounts, or card fragments.
                 </li>
               </ul>
             </section>
@@ -51,10 +55,10 @@ export default function Privacy() {
                 How we use your information
               </h2>
               <ul className="list-disc pl-5 space-y-2">
-                <li>Provide insights, categorization, and analytics.</li>
-                <li>Operate, maintain, and improve the product.</li>
-                <li>Communicate with you about updates and support.</li>
-                <li>Protect against fraud and abuse.</li>
+                <li>Calculate spending views and answers locally in the app.</li>
+                <li>Identify merchants from eligible printed descriptions.</li>
+                <li>Contact past waitlist subscribers who consented to receive updates.</li>
+                <li>Maintain, secure, and support Maliya.</li>
               </ul>
             </section>
 
@@ -63,9 +67,18 @@ export default function Privacy() {
                 Data sharing
               </h2>
               <p>
-                We do not sell your personal data. We may share information with
-                trusted service providers who help us run the service, or when
-                required by law.
+                We do not sell your personal data. If the connected merchant
+                service is enabled, eligible descriptions and a fingerprint are
+                sent to Maliya and AI providers. Up to four candidate business
+                names and an optional country hint may be searched on the web; the
+                full printed description is not sent to search. Separate transaction
+                fields and personal corrections are not sent to that service.
+              </p>
+              <p className="mt-3">
+                No account or device identifier is attached to a contribution, but
+                a printed description can still identify someone. Providers may
+                retain network metadata and logs. Maliya presents this disclosure
+                before you select a statement.
               </p>
             </section>
 
@@ -74,9 +87,10 @@ export default function Privacy() {
                 Security
               </h2>
               <p>
-                We use encryption and access controls to protect your data. We
-                only process information needed to provide read-only insights and
-                never connect directly to your bank accounts.
+                Maliya never connects to your bank or asks for bank credentials.
+                The built-in reader processes supported PDFs on your device, PDF
+                passwords are never saved, and statements are only added after
+                extracted figures reconcile with printed totals.
               </p>
             </section>
 
@@ -85,9 +99,12 @@ export default function Privacy() {
                 Data retention
               </h2>
               <p>
-                We retain your data only as long as necessary to provide the
-                service or meet legal requirements. You can request deletion at
-                any time.
+                Local app data remains until you remove it or use Delete all local
+                data. Original PDFs and local records are excluded from operating-
+                system backup. There is no account sync or cloud recovery. Maliya
+                keeps descriptions contributed to the merchant service permanently;
+                deleting local data does not remove those shared copies or exports
+                you saved elsewhere.
               </p>
             </section>
 
@@ -96,8 +113,10 @@ export default function Privacy() {
                 Your choices
               </h2>
               <ul className="list-disc pl-5 space-y-2">
-                <li>Request access, correction, or deletion of your data.</li>
-                <li>Opt out of marketing communications.</li>
+                <li>Review the sharing disclosure before selecting a statement.</li>
+                <li>Delete the app's local data from Profile and data.</li>
+                <li>Choose where to save exports and remove them yourself.</li>
+                <li>Opt out of any marketing communications.</li>
               </ul>
             </section>
 

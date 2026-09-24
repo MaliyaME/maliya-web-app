@@ -1,67 +1,84 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* Clean, premium, light mode base */
-  --background: 0 0% 100%;
-  --foreground: 222 47% 11%; /* Deep navy/black for text */
+  /* Native Maliya warm-paper palette */
+  --background: 47 39% 96%;
+  --foreground: 160 8% 7%;
 
-  /* Emerald - Financial Growth & Stability */
-  --primary: 158 64% 52%; /* Vibrant Emerald */
-  --primary-foreground: 160 60% 98%;
+  --card: 48 56% 98%;
+  --card-foreground: 160 8% 7%;
+  --popover: 48 56% 98%;
+  --popover-foreground: 160 8% 7%;
 
-  /* Soft Secondary */
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222 47% 11.2%;
+  --primary: 166 100% 18%;
+  --primary-foreground: 48 56% 98%;
 
-  /* Muted tones for depth */
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215 16% 47%;
+  --secondary: 45 30% 92%;
+  --secondary-foreground: 160 8% 7%;
+  --muted: 45 30% 92%;
+  --muted-foreground: 147 6% 30%;
+  --accent: 45 30% 92%;
+  --accent-foreground: 166 100% 18%;
 
-  /* Accents */
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222 47% 11.2%;
+  --destructive: 6 53% 38%;
+  --destructive-foreground: 48 56% 98%;
 
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
+  --border: 53 13% 88%;
+  --input: 53 13% 88%;
+  --ring: 166 100% 18%;
 
-  --border: 214 32% 91%;
-  --input: 214 32% 91%;
-  --ring: 158 64% 52%;
+  --card-border: hsl(var(--border));
+  --popover-border: hsl(var(--border));
+  --primary-border: hsl(166 100% 14%);
+  --secondary-border: hsl(var(--border));
+  --muted-border: hsl(var(--border));
+  --accent-border: hsl(var(--border));
+  --destructive-border: hsl(6 53% 32%);
+  --button-outline: hsl(var(--border));
 
   --radius: 1rem; /* Softer, modern corners */
 
   /* Custom fonts */
-  --font-sans: 'Plus Jakarta Sans', sans-serif;
-  --font-display: 'Outfit', sans-serif;
+  --font-sans: 'Instrument Sans', sans-serif;
+  --font-display: 'Instrument Sans', sans-serif;
 }
 
 .dark {
-  /* Rich, deep dark mode */
-  --background: 224 71% 4%; /* Very dark blue-gray */
-  --foreground: 210 40% 98%;
+  --background: 160 12% 5%;
+  --foreground: 47 39% 96%;
 
-  --primary: 158 64% 52%;
-  --primary-foreground: 144 60% 10%;
+  --card: 150 8% 10%;
+  --card-foreground: 47 39% 96%;
+  --popover: 150 8% 10%;
+  --popover-foreground: 47 39% 96%;
 
-  --secondary: 217 19% 27%;
-  --secondary-foreground: 210 40% 98%;
+  --primary: 158 37% 74%;
+  --primary-foreground: 160 12% 5%;
 
-  --muted: 217 19% 27%;
-  --muted-foreground: 215 20.2% 65.1%;
+  --secondary: 160 9% 13%;
+  --secondary-foreground: 47 39% 96%;
+  --muted: 160 9% 13%;
+  --muted-foreground: 146 6% 78%;
+  --accent: 160 9% 13%;
+  --accent-foreground: 158 37% 74%;
 
-  --accent: 217 19% 27%;
-  --accent-foreground: 210 40% 98%;
+  --destructive: 11 76% 74%;
+  --destructive-foreground: 160 12% 5%;
 
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
+  --border: 147 7% 24%;
+  --input: 147 7% 24%;
+  --ring: 158 37% 74%;
 
-  --border: 217 19% 27%;
-  --input: 217 19% 27%;
-  --ring: 158 64% 52%;
+  --card-border: hsl(var(--border));
+  --popover-border: hsl(var(--border));
+  --primary-border: hsl(158 30% 62%);
+  --secondary-border: hsl(var(--border));
+  --muted-border: hsl(var(--border));
+  --accent-border: hsl(var(--border));
+  --destructive-border: hsl(11 60% 62%);
+  --button-outline: hsl(var(--border));
 }
 
 @layer base {
@@ -73,6 +90,13 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     @apply font-bold tracking-tight text-foreground;
+  }
+}
+
+@layer components {
+  /* One content column shared by the header, every page, and the footer. */
+  .page-container {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
   }
 }
 

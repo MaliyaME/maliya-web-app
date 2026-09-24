@@ -6,10 +6,10 @@ zod | Schema validation (peer dependency)
 ## Notes
 Tailwind Config - extend fontFamily:
 fontFamily: {
-  sans: ["'Plus Jakarta Sans'", "sans-serif"],
-  display: ["'Outfit'", "sans-serif"],
+  sans: ["'Instrument Sans'", "sans-serif"],
+  display: ["'Instrument Sans'", "sans-serif"],
 }
 Colors:
-Using a refined Emerald palette for the primary brand color to match financial wellness/growth themes.
+Use the native app's warm-paper light palette, near-black dark palette, and mineral green accents.
 Images:
-Dynamic images are located in /images/ (dashboard-overview.png, etc).
+Dynamic light/dark screenshot pairs are located in /images/ (dashboard-overview.png, dashboard-overview-dark.png, etc).

@@ -4,10 +4,10 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-muted/30 border-t border-border/50 py-12 md:py-24 mt-24">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
-          <div className="md:col-span-1">
+    <footer className="bg-muted/30 border-t border-border/50 py-12 md:py-20 mt-20 md:mt-24">
+      <div className="page-container">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10 md:gap-8">
+          <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <img
                 src="/app_icon.png"
@@ -19,7 +19,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Your AI-powered personal finance assistant. Making wealth management simpler, smarter, and accessible.
+              A private, on-device view of your spending from supported credit card statement PDFs.
             </p>
           </div>
 
@@ -28,7 +28,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li><Link href="/product" className="text-sm text-muted-foreground hover:text-primary transition-colors">Features</Link></li>
               <li><Link href="/changelog" className="text-sm text-muted-foreground hover:text-primary transition-colors">What's New</Link></li>
-              <li><Link href="/waitlist" className="text-sm text-muted-foreground hover:text-primary transition-colors">Early Access</Link></li>
+              <li><Link href="/download" className="text-sm text-muted-foreground hover:text-primary transition-colors">Get the App</Link></li>
             </ul>
           </div>
 
@@ -50,9 +50,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
-          <p>&copy; {currentYear} Maliya Finance. All rights reserved.</p>
-          <p>Designed for financial wellness.</p>
+        <div className="mt-10 md:mt-12 pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-start md:items-center gap-2 md:gap-4 text-xs text-muted-foreground">
+          <p>&copy; {currentYear} Maliya. All rights reserved.</p>
+          <p>Your money, in focus.</p>
         </div>
       </div>
     </footer>
