@@ -18,6 +18,7 @@ const spendingDarkImg = "/images/spending-trend-dark.png";
 const supportedBanks = [
   { name: "HSBC", src: "/images/hsbc.svg" },
   { name: "FAB", src: "/images/fab.webp" },
+  { name: "ADCB", src: "/images/adcb.png" },
   { name: "Emirates NBD", src: "/images/enbd.png" },
 ];
 
@@ -92,10 +93,10 @@ export default function Home() {
             <p className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-6 sm:mb-8 text-balance">
               Supports original credit card statement PDFs from
             </p>
-            <div className="grid grid-cols-3 gap-3 sm:gap-6 max-w-2xl mx-auto">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 max-w-3xl mx-auto">
               {supportedBanks.map((bank) => (
                 <div key={bank.name} className="flex h-16 sm:h-20 items-center justify-center rounded-2xl border border-border/60 bg-[#FDFCF8] px-3 sm:px-5 shadow-sm">
-                  <img src={bank.src} alt={bank.name} className="max-h-8 sm:max-h-12 max-w-full object-contain" />
+                  <img src={bank.src} alt={bank.name} className="max-h-8 sm:max-h-12 max-w-full object-contain mix-blend-multiply" />
                 </div>
               ))}
             </div>
@@ -128,7 +129,7 @@ export default function Home() {
               <FeatureCard 
                 icon={<Globe className="w-8 h-8 text-blue-500" />}
                 title="Built for supported UAE statements"
-                description="Import recognized credit card PDF layouts from HSBC, FAB, and Emirates NBD, with clear guidance when a layout is not supported."
+                description="Import recognized credit card PDF layouts from HSBC, FAB, ADCB, and Emirates NBD, with clear guidance when a layout is not supported."
               />
             </div>
 

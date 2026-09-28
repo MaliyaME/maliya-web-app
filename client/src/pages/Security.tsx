@@ -49,7 +49,7 @@ export default function Security() {
             <p className="text-muted-foreground mb-6">
               If you believe you've found a security vulnerability in Maliya, please let us know immediately.
             </p>
-            <a href="mailto:security@maliya.app" className="text-primary font-medium hover:underline">
+            <a href="mailto:security@maliya.me" className="text-primary font-medium hover:underline">
               Contact Security Team &rarr;
             </a>
           </div>

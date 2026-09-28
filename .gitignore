@@ -5,7 +5,6 @@ dist
 .vercel
 .local
 supabase/**/.temp
-server/public
 vite.config.ts.*
 *.tar.gz
 .env.local

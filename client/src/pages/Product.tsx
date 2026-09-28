@@ -41,7 +41,7 @@ export default function Product() {
                 </p>
                 <div className="p-6 bg-muted/30 rounded-2xl border border-border/50">
                   <h4 className="font-bold mb-2">Supported credit card PDFs</h4>
-                  <p className="text-sm text-muted-foreground">Recognized layouts from HSBC, FAB, and Emirates NBD. Bank account statements, scans, and transaction-list exports are not supported.</p>
+                  <p className="text-sm text-muted-foreground">Recognized layouts from HSBC, FAB, ADCB, and Emirates NBD. Bank account statements, scans, and transaction-list exports are not supported.</p>
                 </div>
               </div>
               <motion.div 

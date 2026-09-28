@@ -144,9 +144,9 @@ export default function Terms() {
                 Questions about these Terms? Email us at{" "}
                 <a
                   className="text-primary hover:underline"
-                  href="mailto:legal@maliya.app"
+                  href="mailto:legal@maliya.me"
                 >
-                  legal@maliya.app
+                  legal@maliya.me
                 </a>
                 .
               </p>

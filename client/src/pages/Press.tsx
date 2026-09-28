@@ -63,8 +63,8 @@ export default function Press() {
               <p className="text-muted-foreground mb-4">
                 For press inquiries, please contact:
               </p>
-              <a href="mailto:press@maliya.app" className="text-primary font-medium text-lg hover:underline">
-                press@maliya.app
+              <a href="mailto:press@maliya.me" className="text-primary font-medium text-lg hover:underline">
+                press@maliya.me
               </a>
             </section>
           </div>

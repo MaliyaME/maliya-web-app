@@ -36,7 +36,7 @@ export function Footer() {
             <h4 className="font-display font-semibold mb-4 text-foreground">Company</h4>
             <ul className="space-y-3">
               <li><Link href="/press" className="text-sm text-muted-foreground hover:text-primary transition-colors">Press Kit</Link></li>
-              <li><a href="mailto:hello@maliya.app" className="text-sm text-muted-foreground hover:text-primary transition-colors">Contact</a></li>
+              <li><a href="mailto:hello@maliya.me" className="text-sm text-muted-foreground hover:text-primary transition-colors">Contact</a></li>
               <li><Link href="/security" className="text-sm text-muted-foreground hover:text-primary transition-colors">Security</Link></li>
             </ul>
           </div>
