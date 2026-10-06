@@ -303,12 +303,12 @@ export default function Home() {
                 controls
                 playsInline
                 preload="none"
-                poster="/media/product-cover.jpg"
-                aria-label="Maliya product film: your spending, made clearer"
+                poster="/media/maliya-launch-cover.jpg"
+                aria-label="Maliya launch video: where did your money go this month?"
                 className="w-full rounded-2xl shadow-xl bg-card"
               >
-                <source src="/media/maliya-your-money-clearly.mp4" type="video/mp4" />
-                <track kind="captions" src="/media/product.vtt" srcLang="en" label="English" default />
+                <source src="/media/maliya-launch.mp4" type="video/mp4" />
+                <track kind="captions" src="/media/maliya-launch.vtt" srcLang="en" label="English" />
                 Your browser does not support video playback.
               </video>
             </div>
