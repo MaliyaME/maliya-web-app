@@ -15,7 +15,7 @@ export default function Privacy() {
             Privacy Policy
           </h1>
           <p className="text-sm text-muted-foreground mb-10">
-            Last updated: September 27, 2026
+            Last updated: October 6, 2026
           </p>
 
           <div className="space-y-10 text-muted-foreground leading-relaxed">
@@ -43,13 +43,19 @@ export default function Privacy() {
                 </li>
                 <li>
                   App-private data you choose in Maliya, including statement PDFs,
-                  the local ledger, corrections, and notes. This data stays on your
-                  device and is not collected by this website.
+                  the local ledger, single-purchase edits, notes, and your monthly
+                  goal. This data stays on your device and is not collected by this
+                  website.
                 </li>
                 <li>
                   When merchant identification is enabled, eligible bank-printed
                   descriptions and a fingerprint. Descriptions can contain names,
                   references, dates, amounts, or card fragments.
+                </li>
+                <li>
+                  From version 1.0.5, a merchant name or category you choose for
+                  every purchase like it, sent with that bank-printed description
+                  and its fingerprint for review.
                 </li>
                 <li>
                   Optional technical crash reports if you enable diagnostics, and
@@ -113,6 +119,7 @@ export default function Privacy() {
               <ul className="list-disc pl-5 space-y-2">
                 <li>Calculate spending views and answers locally in the app.</li>
                 <li>Identify merchants from eligible printed descriptions.</li>
+                <li>Review merchant corrections you send and, if approved, publish them in the shared directory.</li>
                 <li>Contact past waitlist subscribers who consented to receive updates.</li>
                 <li>Maintain, secure, and support Maliya.</li>
               </ul>
@@ -128,13 +135,43 @@ export default function Privacy() {
                 sent to Maliya and AI providers. Up to four candidate business
                 names and an optional country hint may be searched on the web; the
                 full printed description is not sent to search. Separate transaction
-                fields and personal corrections are not sent to that service.
+                fields (amounts, dates, and card details), notes, and single-purchase
+                edits are not sent to that service.
               </p>
               <p className="mt-3">
                 No account or device identifier is attached to a contribution, but
                 a printed description can still identify someone. Providers may
                 retain network metadata and logs. Maliya presents this disclosure
                 before you select a statement.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold font-display text-foreground mb-3">
+                Merchant corrections
+              </h2>
+              <p>
+                From version 1.0.5, when you name a merchant or change its category
+                for every purchase like it, the app sends that name or category to
+                Maliya with the bank-printed description and its fingerprint, for
+                review. Nothing is sent until you choose Continue on the in-app
+                explanation. To keep a correction on your device only, choose
+                &ldquo;This purchase&rdquo;. Single-purchase edits, notes, recurring
+                marks, &ldquo;Not a business&rdquo;, filing resets, amounts, dates,
+                card details, and statements are never sent.
+              </p>
+              <p className="mt-3">
+                A random identifier for each save is sent so that a retry is not
+                stored twice; it is not an account or device identifier. A received
+                correction is a suggestion, not a change to the shared directory.
+                Maliya&apos;s operator reviews it; suggestions are not sent to AI
+                services. If approved, the name or category is published in the
+                shared directory that everyone&apos;s app uses.
+              </p>
+              <p className="mt-3">
+                To limit abuse, the service keeps a daily-changing one-way hash of
+                part of the network address a suggestion came from. It is not the
+                address itself and is not linked to an account or device identifier.
               </p>
             </section>
 
@@ -170,6 +207,17 @@ export default function Privacy() {
                 local deletion cannot recall them.
               </p>
               <p className="mt-3">
+                A merchant correction waits for review for up to 30 days. When it
+                is approved or rejected, the suggestion is deleted and only a record
+                of the decision is kept: the description&apos;s fingerprint, any
+                published name or category and the values it replaced, and an
+                optional reviewer note. Corrections not decided within 30 days are
+                deleted. Save identifiers are kept for 60 days without the
+                correction text, and network-address hashes for up to two days.
+                Corrections waiting on your device to be sent are removed by Delete
+                all local data; corrections already received are not.
+              </p>
+              <p className="mt-3">
                 Turning crash reporting off clears unsent local crash reports.
                 Usage events have a bounded, memory-only queue; opting out or
                 backgrounding drops unsent events. Deleting local data clears these
@@ -184,6 +232,7 @@ export default function Privacy() {
               </h2>
               <ul className="list-disc pl-5 space-y-2">
                 <li>Review the sharing disclosure before selecting a statement.</li>
+                <li>Choose &ldquo;This purchase&rdquo; to keep a correction on your device only.</li>
                 <li>Delete the app's local data from Profile and data.</li>
                 <li>Choose where to save exports and remove them yourself.</li>
                 <li>Opt out of any marketing communications.</li>
