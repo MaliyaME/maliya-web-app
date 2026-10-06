@@ -26,14 +26,6 @@ const supportedBanks = [
 
 const heroHighlights = ["No bank login", "No account", "No cloud sync"];
 
-const staysOnPhone = [
-  "Your statement PDFs",
-  "Amounts, dates and card details",
-  "Your spending history and totals",
-  "Notes, single-purchase edits and your goal",
-  "The questions you ask, and their answers",
-];
-
 export default function Home() {
   const { isDark } = useTheme();
 
@@ -124,44 +116,6 @@ export default function Home() {
                   <img src={bank.src} alt={bank.name} className="max-h-8 sm:max-h-12 max-w-full object-contain mix-blend-multiply" />
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* PRIVACY */}
-        <section className="pt-20 md:pt-28" id="privacy">
-          <div className="page-container">
-            <div className="rounded-[2rem] bg-primary text-primary-foreground px-6 py-12 sm:px-10 md:px-14 md:py-16 grid lg:grid-cols-2 gap-12 lg:gap-16">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-wider text-primary-foreground/70 mb-4">Private by design</p>
-                <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 text-balance text-primary-foreground">
-                  Your statements stay on your phone.
-                </h2>
-                <p className="text-lg text-primary-foreground/80 leading-relaxed">
-                  Maliya reads your statements on your phone, and your totals and answers are worked out there too. No bank login. No account. No cloud sync.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold font-display mb-5 text-primary-foreground">What stays on your phone</h3>
-                <ul className="space-y-3">
-                  {staysOnPhone.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 mt-0.5 shrink-0" aria-hidden="true" />
-                      <span className="font-medium">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-8 pt-6 border-t border-primary-foreground/20 text-sm text-primary-foreground/80 leading-relaxed space-y-3">
-                  <p>
-                    <span className="font-semibold text-primary-foreground">What goes online:</span> to name shops, Maliya shares the shop text your bank prints on eligible purchases. It can include personal details, and Maliya keeps its copy. Amounts, dates and card details aren't attached, and the app shows you exactly what's shared before you start. If you rename a shop for every purchase like it, that name is sent for review.
-                  </p>
-                  <p>Crash reports and usage analytics are off unless you turn them on.</p>
-                  <Link href="/security" className="inline-flex items-center font-semibold text-primary-foreground hover:underline">
-                    How Maliya handles your data
-                    <ArrowRight className="ml-1.5 w-4 h-4" aria-hidden="true" />
-                  </Link>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -325,7 +279,7 @@ export default function Home() {
                   Ready for a clearer picture?
                 </h2>
                 <p className="text-lg text-muted-foreground">
-                  Free on the App Store now, and coming soon to Google Play. Your statements stay on your phone.
+                  Free on the App Store now, and coming soon to Google Play.
                 </p>
               </div>
               <Link href="/download">
