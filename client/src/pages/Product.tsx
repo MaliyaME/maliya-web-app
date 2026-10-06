@@ -32,7 +32,7 @@ export default function Product() {
               <span className="text-primary">your spending</span>
             </h1>
             <p className="text-xl text-muted-foreground">
-              From checked statements to answers worked out on your iPhone. Every feature starts with spending history that stays on your phone.
+              From checked statements to answers worked out on your phone. Every feature starts with spending history that stays there.
             </p>
           </div>
 
@@ -125,7 +125,7 @@ export default function Product() {
                   Shops Maliya can't identify are ranked by how much you spent there, so the biggest come first. Name them one at a time, track your progress, skip any, or mark a charge as not a business.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  A name for a single purchase stays on your iPhone. A name for every purchase like it is sent for review and, if approved, helps name that shop for everyone.
+                  A name for a single purchase stays on your phone. A name for every purchase like it is sent for review and, if approved, helps name that shop for everyone.
                 </p>
               </div>
             </section>
@@ -136,7 +136,7 @@ export default function Product() {
                 <div className="uppercase text-sm font-bold tracking-wider text-primary mb-2">Wellness Score</div>
                 <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">Understand your monthly rhythm</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  A score out of 100, compared only with your own past months. Six factors you can open explain it, and each links back to its purchases. Set a monthly goal that stays on your iPhone. It's a guide, not a grade.
+                  A score out of 100, compared only with your own past months. Six factors you can open explain it, and each links back to its purchases. Set a monthly goal that stays on your phone. It's a guide, not a grade.
                 </p>
               </div>
               <motion.div 
@@ -162,7 +162,7 @@ export default function Product() {
               </motion.div>
               <div className="order-1 md:order-2">
                 <div className="uppercase text-sm font-bold tracking-wider text-primary mb-2">Ask Maliya</div>
-                <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">Answers worked out on your iPhone</h2>
+                <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">Answers worked out on your phone</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                   Ask about a month, category, repeat charge, or unusual purchase. Every answer shows the purchases behind it and suggests what to ask next. Your questions are not sent to an external AI chat service.
                 </p>
@@ -175,7 +175,7 @@ export default function Product() {
               <Smartphone className="w-7 h-7" aria-hidden="true" />
             </div>
             <div className="flex-1">
-              <h2 className="text-2xl md:text-3xl font-display font-bold mb-3">Your statements stay on your iPhone</h2>
+              <h2 className="text-2xl md:text-3xl font-display font-bold mb-3">Your statements stay on your phone</h2>
               <p className="text-muted-foreground leading-relaxed">
                 So do your spending history, notes, and goal, and your totals and answers are worked out there. No bank login, no account, and no cloud sync.
               </p>

@@ -7,7 +7,7 @@ import { useTheme } from "@/hooks/use-theme";
 
 const appStoreUrl = "https://apps.apple.com/ae/app/maliya/id6754902365";
 
-const highlights = ["Free for everyone", "No bank login", "Statements stay on your iPhone"];
+const highlights = ["Free for everyone", "No bank login", "Statements stay on your phone"];
 
 export default function Download() {
   const { isDark } = useTheme();
@@ -33,7 +33,7 @@ export default function Download() {
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight mb-6 text-balance">
               Get Maliya <br />
-              <span className="text-primary">for iPhone.</span>
+              <span className="text-primary">on your phone.</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-10 text-balance">
               Import supported UAE credit card statements and see where your money goes. No bank login or account required.

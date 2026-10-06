@@ -61,7 +61,7 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8 text-balance"
               >
-                Add the credit card statements you already get, and see where your money went. Your statements and spending history stay on your iPhone.
+                Add the credit card statements you already get, and see where your money went. Your statements and spending history stay on your phone.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -135,14 +135,14 @@ export default function Home() {
               <div>
                 <p className="text-sm font-semibold uppercase tracking-wider text-primary-foreground/70 mb-4">Private by design</p>
                 <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 text-balance text-primary-foreground">
-                  Your statements stay on your iPhone.
+                  Your statements stay on your phone.
                 </h2>
                 <p className="text-lg text-primary-foreground/80 leading-relaxed">
-                  Maliya reads your statements on your iPhone, and your totals and answers are worked out there too. No bank login. No account. No cloud sync.
+                  Maliya reads your statements on your phone, and your totals and answers are worked out there too. No bank login. No account. No cloud sync.
                 </p>
               </div>
               <div>
-                <h3 className="text-xl font-bold font-display mb-5 text-primary-foreground">What stays on your iPhone</h3>
+                <h3 className="text-xl font-bold font-display mb-5 text-primary-foreground">What stays on your phone</h3>
                 <ul className="space-y-3">
                   {staysOnPhone.map((item) => (
                     <li key={item} className="flex items-start gap-3">
@@ -258,7 +258,7 @@ export default function Home() {
               </div>
               <div className="order-1 md:order-2">
                 <h3 className="text-3xl md:text-4xl font-display font-bold mb-6">
-                  Answers worked out on your iPhone
+                  Answers worked out on your phone
                 </h3>
                 <p className="text-lg text-muted-foreground mb-8">
                   Ask about a month, category, repeat charge, or unusual purchase. Continue with suggested follow-ups and see the purchases behind each answer.
@@ -288,13 +288,13 @@ export default function Home() {
                 />
                 <StepCard
                   number="02"
-                  title="Read and Check on Your iPhone"
-                  description="Maliya reads each PDF on your iPhone and only adds statements that match their printed totals."
+                  title="Read and Check on Your Phone"
+                  description="Maliya reads each PDF on your phone and only adds statements that match their printed totals."
                 />
                 <StepCard
                   number="03"
                   title="Explore Your Spending"
-                  description="See monthly comparisons, category and purchase stories, spending wellness, searchable activity, and answers worked out on your iPhone."
+                  description="See monthly comparisons, category and purchase stories, spending wellness, searchable activity, and answers worked out on your phone."
                 />
               </div>
             </div>
@@ -325,7 +325,7 @@ export default function Home() {
                   Ready for a clearer picture?
                 </h2>
                 <p className="text-lg text-muted-foreground">
-                  Free on iPhone. Your statements stay on it. Google Play is coming soon.
+                  Free on the App Store now, and coming soon to Google Play. Your statements stay on your phone.
                 </p>
               </div>
               <Link href="/download">

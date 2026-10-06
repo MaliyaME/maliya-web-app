@@ -7,7 +7,7 @@ const changes = [
     status: "Version 1.0.5",
     title: "Purchase stories and merchant naming",
     description: "Open any purchase to see color-coded comparisons, your recent purchases at the same shop, and the card you paid with. Name your biggest unidentified merchants one at a time, with progress, skips, and a way to leave non-business charges alone. Categories and subcategories now compare with your usual in the same way, and password-protected PDFs are easier to unlock.",
-    tags: ["iPhone", "New"]
+    tags: ["New"]
   },
   {
     status: "Version 1.0.4",
@@ -24,7 +24,7 @@ const changes = [
   {
     status: "Coming soon",
     title: "Maliya on Google Play",
-    description: "The Android store listing is not public yet. Check back here for its download link.",
+    description: "The Android version is coming soon to Google Play. As on iPhone, your statements stay on your phone. Check back here for its download link.",
     tags: ["Android"]
   }
 ];

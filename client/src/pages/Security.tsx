@@ -17,14 +17,14 @@ export default function Security() {
               Security First. Always.
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Your statements and spending history stay on your iPhone. Maliya never asks for access to your bank account.
+              Your statements and spending history stay on your phone. Maliya never asks for access to your bank account.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             <SecurityCard 
               icon={<Lock className="w-6 h-6" />}
-              title="Stays on Your iPhone"
+              title="Stays on Your Phone"
               description="Your statement PDFs, spending history, notes, single-purchase edits, and monthly goal stay in the app's private storage and are excluded from operating-system backup. There is no account sync or cloud recovery."
             />
             <SecurityCard 

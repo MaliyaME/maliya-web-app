@@ -19,7 +19,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              A clear view of your spending from supported credit card statement PDFs. Your statements and spending history stay on your iPhone.
+              A clear view of your spending from supported credit card statement PDFs. Your statements and spending history stay on your phone.
             </p>
           </div>
 
