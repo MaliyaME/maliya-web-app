@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ScreenshotPlaceholder } from "@/components/ScreenshotPlaceholder";
 import { Link } from "wouter";
-import { ArrowRight, CheckCircle2, ShieldCheck, Zap, Globe } from "lucide-react";
+import { ArrowRight, Check, CheckCircle2, Store, Zap, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTheme } from "@/hooks/use-theme";
 
@@ -14,12 +14,24 @@ const insightsImg = "/images/insights-stats.png";
 const insightsDarkImg = "/images/insights-stats-dark.png";
 const spendingImg = "/images/spending-trend.png";
 const spendingDarkImg = "/images/spending-trend-dark.png";
+const purchaseImg = "/images/purchase-story.png";
+const purchaseDarkImg = "/images/purchase-story-dark.png";
 
 const supportedBanks = [
   { name: "HSBC", src: "/images/hsbc.svg" },
   { name: "FAB", src: "/images/fab.webp" },
-  { name: "ADCB", src: "/images/adcb.png" },
+  { name: "ADCB Islamic", src: "/images/adcb.png" },
   { name: "Emirates NBD", src: "/images/enbd.png" },
+];
+
+const heroHighlights = ["No bank login", "No account", "No cloud sync"];
+
+const staysOnPhone = [
+  "Your statement PDFs",
+  "Amounts, dates and card details",
+  "Your spending history and totals",
+  "Notes, single-purchase edits and your goal",
+  "The questions you ask, and their answers",
 ];
 
 export default function Home() {
@@ -49,7 +61,7 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8 text-balance"
               >
-                Turn supported credit card statement PDFs into a clear, private view of your spending. No bank login, no account sync, and no invented totals.
+                Add the credit card statements you already get, and see where your money went. Your statements and spending history stay on your iPhone.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -69,6 +81,19 @@ export default function Home() {
                   </Button>
                 </Link>
               </motion.div>
+              <motion.ul
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="mt-8 flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-3 text-sm text-muted-foreground"
+              >
+                {heroHighlights.map((item) => (
+                  <li key={item} className="inline-flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary" aria-hidden="true" />
+                    {item}
+                  </li>
+                ))}
+              </motion.ul>
             </div>
 
             <motion.div
@@ -80,7 +105,7 @@ export default function Home() {
               <div className="absolute inset-8 rounded-full bg-primary/10 blur-3xl" aria-hidden="true" />
               <img
                 src={isDark ? dashboardDarkImg : dashboardImg}
-                alt="Maliya home screen showing December spending, wellness, and monthly trends"
+                alt="Maliya home screen showing September spending, wellness, and monthly trends"
                 className="relative w-full rounded-[2.5rem] border-[6px] border-foreground/20 bg-card shadow-2xl"
               />
             </motion.div>
@@ -103,15 +128,53 @@ export default function Home() {
           </div>
         </section>
 
+        {/* PRIVACY */}
+        <section className="pt-20 md:pt-28" id="privacy">
+          <div className="page-container">
+            <div className="rounded-[2rem] bg-primary text-primary-foreground px-6 py-12 sm:px-10 md:px-14 md:py-16 grid lg:grid-cols-2 gap-12 lg:gap-16">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-wider text-primary-foreground/70 mb-4">Private by design</p>
+                <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 text-balance text-primary-foreground">
+                  Your statements stay on your iPhone.
+                </h2>
+                <p className="text-lg text-primary-foreground/80 leading-relaxed">
+                  Maliya reads your statements on your iPhone, and your totals and answers are worked out there too. No bank login. No account. No cloud sync.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold font-display mb-5 text-primary-foreground">What stays on your iPhone</h3>
+                <ul className="space-y-3">
+                  {staysOnPhone.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <Check className="w-5 h-5 mt-0.5 shrink-0" aria-hidden="true" />
+                      <span className="font-medium">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-8 pt-6 border-t border-primary-foreground/20 text-sm text-primary-foreground/80 leading-relaxed space-y-3">
+                  <p>
+                    <span className="font-semibold text-primary-foreground">What goes online:</span> to name shops, Maliya shares the shop text your bank prints on eligible purchases. It can include personal details, and Maliya keeps its copy. Amounts, dates and card details aren't attached, and the app shows you exactly what's shared before you start. If you rename a shop for every purchase like it, that name is sent for review.
+                  </p>
+                  <p>Crash reports and usage analytics are off unless you turn them on.</p>
+                  <Link href="/security" className="inline-flex items-center font-semibold text-primary-foreground hover:underline">
+                    How Maliya handles your data
+                    <ArrowRight className="ml-1.5 w-4 h-4" aria-hidden="true" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* FEATURES GRID */}
         <section className="py-20 md:py-28">
           <div className="page-container">
             <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
               <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
-                A clearer picture, held privately
+                A clearer picture of every month
               </h2>
               <p className="text-lg text-muted-foreground">
-                Maliya reads supported statements on your device, checks the figures, and gives every month a useful shape.
+                Maliya reads your statements, checks the numbers, and shows what you spent, how it compares with your usual month, and what made the difference.
               </p>
             </div>
 
@@ -119,17 +182,17 @@ export default function Home() {
               <FeatureCard 
                 icon={<Zap className="w-8 h-8 text-yellow-500" />}
                 title="Checked before it is added"
-                description="Maliya reconciles what it reads with the statement's printed totals. A statement that does not match stays out of your ledger."
+                description="Maliya checks the numbers it reads against the totals printed on your statement. If they don't match, that statement isn't added."
               />
               <FeatureCard 
-                icon={<ShieldCheck className="w-8 h-8 text-primary" />}
-                title="Private on your device"
-                description="Your PDFs, ledger, corrections, and notes remain app-private. There is no bank connection, account sync, or cloud recovery."
+                icon={<Store className="w-8 h-8 text-primary" />}
+                title="Name your top merchants"
+                description="Shops Maliya can't identify are ranked by how much you spent. Name them one at a time, skip any, or mark a charge as not a business."
               />
               <FeatureCard 
                 icon={<Globe className="w-8 h-8 text-blue-500" />}
-                title="Built for supported UAE statements"
-                description="Import recognized credit card PDF layouts from HSBC, FAB, ADCB, and Emirates NBD, with clear guidance when a layout is not supported."
+                title="Built for UAE credit cards"
+                description="Add monthly credit card PDFs from HSBC, FAB, Emirates NBD, and ADCB Islamic, up to 50 at a time. Password-protected PDFs open right in the app."
               />
             </div>
 
@@ -148,12 +211,12 @@ export default function Home() {
                   See each month in context
                 </h3>
                 <p className="text-lg text-muted-foreground mb-8">
-                  Compare complete months, open a category, then move through subcategories, merchants, and the purchases behind every total.
+                  Open a category to see how it compares with your usual, then move through subcategories, shops, and the purchases behind every total.
                 </p>
                 <ul className="space-y-4">
-                  <CheckItem text="Monthly spending comparisons" />
-                  <CheckItem text="Category and merchant stories" />
-                  <CheckItem text="Links to supporting purchases" />
+                  <CheckItem text="Above and below your usual, in every category" />
+                  <CheckItem text="Category, subcategory, and shop stories" />
+                  <CheckItem text="Every total links to its purchases" />
                 </ul>
               </div>
             </div>
@@ -162,24 +225,49 @@ export default function Home() {
             <div className="mt-20 md:mt-28 grid md:grid-cols-2 gap-10 md:gap-12 lg:gap-20 items-center">
               <div>
                 <h3 className="text-3xl md:text-4xl font-display font-bold mb-6">
-                  Answers grounded in your ledger
+                  Every purchase has a story
                 </h3>
                 <p className="text-lg text-muted-foreground mb-8">
-                  Ask about a month, category, recurring charge, or unusual purchase. Continue with suggested follow-ups and see the purchases behind each answer.
+                  Open any purchase to see whether it stands out, what you spent at the same shop before, and the card you paid with.
                 </p>
                 <ul className="space-y-4">
-                  <CheckItem text="Follow-up questions that keep context" />
-                  <CheckItem text="Links to supporting transactions" />
-                  <CheckItem text="Calculated on your device, without external AI" />
+                  <CheckItem text="Color-coded comparisons" />
+                  <CheckItem text="Your latest purchases at the same shop" />
+                  <CheckItem text="One tap to the exact statement" />
                 </ul>
               </div>
               <div>
                 <ScreenshotPlaceholder 
-                  imageSrc={insightsImg} 
-                  darkImageSrc={insightsDarkImg}
-                  alt="Maliya AI conversation with a spending answer and follow-up questions"
+                  imageSrc={purchaseImg} 
+                  darkImageSrc={purchaseDarkImg}
+                  alt="Purchase story for a Carrefour grocery purchase, with recent purchases at the same shop"
                   className="-rotate-2 hover:rotate-0 transition-transform duration-500"
                 />
+              </div>
+            </div>
+
+            {/* Feature Deep Dive 3 */}
+            <div className="mt-20 md:mt-28 grid md:grid-cols-2 gap-10 md:gap-12 lg:gap-20 items-center">
+              <div className="order-2 md:order-1">
+                <ScreenshotPlaceholder 
+                  imageSrc={insightsImg} 
+                  darkImageSrc={insightsDarkImg}
+                  alt="Maliya Ask answer showing where most of September's money went, with follow-up questions"
+                  className="rotate-2 hover:rotate-0 transition-transform duration-500"
+                />
+              </div>
+              <div className="order-1 md:order-2">
+                <h3 className="text-3xl md:text-4xl font-display font-bold mb-6">
+                  Answers worked out on your iPhone
+                </h3>
+                <p className="text-lg text-muted-foreground mb-8">
+                  Ask about a month, category, repeat charge, or unusual purchase. Continue with suggested follow-ups and see the purchases behind each answer.
+                </p>
+                <ul className="space-y-4">
+                  <CheckItem text="Follow-up questions that keep context" />
+                  <CheckItem text="Links to the purchases behind each answer" />
+                  <CheckItem text="Not sent to an external AI chat service" />
+                </ul>
               </div>
             </div>
           </div>
@@ -196,17 +284,17 @@ export default function Home() {
                 <StepCard
                   number="01"
                   title="Choose Statements"
-                  description="Select original monthly credit card PDFs from a supported bank. No bank credentials are required."
+                  description="Pick the monthly credit card PDFs you already get from a supported bank. No bank login needed."
                 />
                 <StepCard
                   number="02"
-                  title="Read and Check"
-                  description="Maliya reads each PDF on your device and only adds statements whose printed totals reconcile."
+                  title="Read and Check on Your iPhone"
+                  description="Maliya reads each PDF on your iPhone and only adds statements that match their printed totals."
                 />
                 <StepCard
                   number="03"
-                  title="Explore the Evidence"
-                  description="Review monthly trends, spending stories, wellness factors, searchable activity, and on-device answers."
+                  title="Explore Your Spending"
+                  description="See monthly comparisons, category and purchase stories, spending wellness, searchable activity, and answers worked out on your iPhone."
                 />
               </div>
             </div>
@@ -237,7 +325,7 @@ export default function Home() {
                   Ready for a clearer picture?
                 </h2>
                 <p className="text-lg text-muted-foreground">
-                  Free on the App Store now. Google Play is coming soon.
+                  Free on iPhone. Your statements stay on it. Google Play is coming soon.
                 </p>
               </div>
               <Link href="/download">

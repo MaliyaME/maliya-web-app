@@ -7,7 +7,7 @@ import { useTheme } from "@/hooks/use-theme";
 
 const appStoreUrl = "https://apps.apple.com/ae/app/maliya/id6754902365";
 
-const highlights = ["Free for everyone", "No bank login", "Statements stay on your device"];
+const highlights = ["Free for everyone", "No bank login", "Statements stay on your iPhone"];
 
 export default function Download() {
   const { isDark } = useTheme();

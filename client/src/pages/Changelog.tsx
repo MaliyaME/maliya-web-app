@@ -4,6 +4,18 @@ import { Badge } from "@/components/ui/badge";
 
 const changes = [
   {
+    status: "Version 1.0.5",
+    title: "Purchase stories and merchant naming",
+    description: "Open any purchase to see color-coded comparisons, your recent purchases at the same shop, and the card you paid with. Name your biggest unidentified merchants one at a time, with progress, skips, and a way to leave non-business charges alone. Categories and subcategories now compare with your usual in the same way, and password-protected PDFs are easier to unlock.",
+    tags: ["iPhone", "New"]
+  },
+  {
+    status: "Version 1.0.4",
+    title: "ADCB Islamic statements",
+    description: "Add ADCB Islamic credit card statements alongside HSBC, FAB, and Emirates NBD. The first screen shows which banks Maliya supports. Optional crash reports and usage analytics stay off unless you turn them on.",
+    tags: ["iPhone"]
+  },
+  {
     status: "Available now",
     title: "Maliya on the App Store",
     description: "Maliya is free to download for iPhone. Explore spending from supported credit card statements without a bank login or an app account.",
@@ -26,7 +38,7 @@ export default function Changelog() {
         <div className="page-container max-w-3xl">
           <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">What's New</h1>
           <p className="text-lg text-muted-foreground mb-16">
-            Where to get Maliya and what is coming next.
+            What's new in Maliya, and what is coming next.
           </p>
 
           <div className="relative border-l border-border/50 ml-4 md:ml-0 space-y-16">

@@ -17,15 +17,15 @@ export default function Security() {
               Security First. Always.
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Maliya minimizes the data boundary instead of asking for access to your bank account.
+              Your statements and spending history stay on your iPhone. Maliya never asks for access to your bank account.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             <SecurityCard 
               icon={<Lock className="w-6 h-6" />}
-              title="App-Private Storage"
-              description="Your statement PDFs, local ledger, corrections, and notes stay in the app's private storage and are excluded from operating-system backup. There is no account sync or cloud recovery."
+              title="Stays on Your iPhone"
+              description="Your statement PDFs, spending history, notes, single-purchase edits, and monthly goal stay in the app's private storage and are excluded from operating-system backup. There is no account sync or cloud recovery."
             />
             <SecurityCard 
               icon={<EyeOff className="w-6 h-6" />}
@@ -40,7 +40,7 @@ export default function Security() {
             <SecurityCard 
               icon={<Shield className="w-6 h-6" />}
               title="Clear Sharing Boundary"
-              description="PDFs and separate transaction fields are not sent to the merchant service. When enabled, eligible bank-printed descriptions and a fingerprint are shared for merchant identification only after an upfront disclosure."
+              description="PDFs, amounts, dates, and card details are not sent to the merchant service. Eligible bank-printed descriptions and a fingerprint are shared to identify merchants, and a name or category you choose for every purchase like it is sent for review. The app explains this before anything is shared. Crash reports and usage analytics are off unless you turn them on."
             />
           </div>
 

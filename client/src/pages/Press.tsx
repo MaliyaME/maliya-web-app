@@ -20,7 +20,7 @@ export default function Press() {
               <h2 className="text-2xl font-bold font-display mb-6">About Maliya</h2>
               <div className="prose prose-lg dark:prose-invert text-muted-foreground">
                 <p>
-                  Maliya is a private spending companion built for supported UAE credit card statements. It reads PDFs on the device, checks extracted figures against printed totals, and turns complete statement history into monthly comparisons, spending stories, searchable activity, wellness factors, and evidence-backed answers. Maliya is free on the App Store; its Google Play listing is coming soon.
+                  Maliya is a private spending companion for supported UAE credit card statements from HSBC, FAB, Emirates NBD, and ADCB Islamic. It reads PDFs on the iPhone, checks the numbers against printed totals, and turns complete statement history into monthly comparisons, category and purchase stories, searchable activity, wellness factors, and answers worked out on the phone. Statements and spending history stay on the user's iPhone, with no bank login or account. Maliya is free on the App Store; its Google Play listing is coming soon.
                 </p>
               </div>
             </section>
