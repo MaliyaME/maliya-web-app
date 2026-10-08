@@ -4,6 +4,12 @@ import { Badge } from "@/components/ui/badge";
 
 const changes = [
   {
+    status: "Closed beta",
+    title: "Maliya for Android beta",
+    description: "Maliya 1.0.5 for Android is in closed beta on Google Play, and the public release is coming soon. As on iPhone, your statements stay on your phone. The three steps to join are on the Get the App page.",
+    tags: ["Android", "Beta"]
+  },
+  {
     status: "Version 1.0.5",
     title: "Purchase stories and merchant naming",
     description: "Open any purchase to see color-coded comparisons, your recent purchases at the same shop, and the card you paid with. Name your biggest unidentified merchants one at a time, with progress, skips, and a way to leave non-business charges alone. Categories and subcategories now compare with your usual in the same way, and password-protected PDFs are easier to unlock.",
@@ -20,12 +26,6 @@ const changes = [
     title: "Maliya on the App Store",
     description: "Maliya is free to download for iPhone. Explore spending from supported credit card statements without a bank login or an app account.",
     tags: ["iPhone", "Free"]
-  },
-  {
-    status: "Coming soon",
-    title: "Maliya on Google Play",
-    description: "The Android version is coming soon to Google Play. As on iPhone, your statements stay on your phone. Check back here for its download link.",
-    tags: ["Android"]
   }
 ];
 

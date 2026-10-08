@@ -279,7 +279,7 @@ export default function Home() {
                   Ready for a clearer picture?
                 </h2>
                 <p className="text-lg text-muted-foreground">
-                  Free on the App Store now, and coming soon to Google Play.
+                  Free on the App Store now. On Android, join the closed beta on Google Play.
                 </p>
               </div>
               <Link href="/download">

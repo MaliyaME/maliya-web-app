@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Check } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 import { SiApple, SiGoogleplay } from "react-icons/si";
 import { motion } from "framer-motion";
 import { useTheme } from "@/hooks/use-theme";
@@ -8,6 +8,23 @@ import { useTheme } from "@/hooks/use-theme";
 const appStoreUrl = "https://apps.apple.com/ae/app/maliya/id6754902365";
 
 const highlights = ["Free for everyone", "No bank login", "Statements stay on your phone"];
+
+const androidBetaSteps = [
+  {
+    title: "Join the beta group",
+    description: "Join the Maliya Android beta group on Google Groups.",
+    link: { href: "https://groups.google.com/g/maliya-android-beta", label: "Join the group" },
+  },
+  {
+    title: "Become a tester",
+    description: "Open the Google Play testing page and choose to become a tester.",
+    link: { href: "https://play.google.com/apps/testing/com.maliya", label: "Become a tester" },
+  },
+  {
+    title: "Install from Google Play",
+    description: "Follow the Google Play install link shown after you opt in.",
+  },
+];
 
 export default function Download() {
   const { isDark } = useTheme();
@@ -51,16 +68,17 @@ export default function Download() {
                   <span className="text-lg sm:text-xl font-semibold tracking-tight mt-1">App Store</span>
                 </span>
               </a>
-              <div
-                aria-label="Google Play version coming soon"
-                className="inline-flex h-14 items-center justify-center sm:justify-start gap-2.5 rounded-xl border border-dashed border-border px-4 sm:px-5 text-muted-foreground"
+              <a
+                href="#android-beta"
+                aria-label="Join the Maliya Android beta on Google Play"
+                className="inline-flex h-14 items-center justify-center sm:justify-start gap-2.5 rounded-xl border border-border bg-card px-4 sm:px-5 text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 <SiGoogleplay className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" aria-hidden="true" />
                 <span className="flex flex-col items-start leading-none">
-                  <span className="text-[11px] font-medium">Coming soon to</span>
+                  <span className="text-[11px] font-medium">Android beta on</span>
                   <span className="text-lg sm:text-xl font-semibold tracking-tight mt-1">Google Play</span>
                 </span>
-              </div>
+              </a>
             </div>
 
             <ul className="mt-8 flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-3 text-sm text-muted-foreground">
@@ -91,6 +109,58 @@ export default function Download() {
               className="relative w-[46%] max-w-[250px] mt-12 sm:mt-16 rotate-3 hover:rotate-0 transition-transform duration-500 rounded-[1.75rem] sm:rounded-[2.25rem] border-4 sm:border-[6px] border-foreground/20 bg-card shadow-2xl"
             />
           </motion.div>
+        </section>
+
+        <section id="android-beta" className="page-container mt-20 lg:mt-28 scroll-mt-28">
+          <div className="rounded-3xl border border-border/50 bg-muted/30 p-6 sm:p-10 md:p-12 grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16">
+            <div>
+              <div className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary mb-4">
+                <SiGoogleplay className="w-4 h-4" aria-hidden="true" />
+                Android beta
+              </div>
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-balance">
+                Try Maliya on Android
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                Maliya 1.0.5 for Android is in closed beta on Google Play. The public release is coming soon.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 mt-0.5 text-primary shrink-0" aria-hidden="true" />
+                  Use the same Google account for all three steps.
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 mt-0.5 text-primary shrink-0" aria-hidden="true" />
+                  Needs Android 15 or newer.
+                </li>
+              </ul>
+            </div>
+            <ol className="space-y-8">
+              {androidBetaSteps.map((step, index) => (
+                <li key={step.title} className="flex items-start gap-5">
+                  <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex-shrink-0 flex items-center justify-center font-bold">
+                    {index + 1}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold font-display mb-1">{step.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+                    {step.link && (
+                      <a
+                        href={step.link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-2 inline-flex items-center gap-1 font-semibold text-primary hover:underline"
+                      >
+                        {step.link.label}
+                        <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+                        <span className="sr-only">(opens in a new tab)</span>
+                      </a>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
         </section>
       </main>
       <Footer />
