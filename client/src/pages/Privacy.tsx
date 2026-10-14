@@ -15,7 +15,7 @@ export default function Privacy() {
             Privacy Policy
           </h1>
           <p className="text-sm text-muted-foreground mb-10">
-            Last updated: October 6, 2026
+            Last updated: October 14, 2026
           </p>
 
           <div className="space-y-10 text-muted-foreground leading-relaxed">
@@ -62,7 +62,86 @@ export default function Privacy() {
                   an optional usage-event stream if you enable usage analytics.
                   Feedback is sent only when you explicitly submit it.
                 </li>
+                <li>
+                  If you connect an email account in an iPhone build that offers
+                  Email, your chosen search settings, matching sender addresses,
+                  dates, filenames, and attachment identifiers stay on your device.
+                </li>
               </ul>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold font-display text-foreground mb-3">
+                Optional email statement discovery on iPhone
+              </h2>
+              <p>
+                In iPhone builds that offer Email, connecting a mailbox is optional;
+                you can still import PDFs manually. Maliya searches for possible
+                statement attachments using your chosen conditions while the app is
+                active. If you enable checks on open, it checks no more than once
+                every twelve hours after a successful check; you can also ask it to
+                check. There is no unattended daily background mailbox job. Search
+                conditions do not limit the permission granted by your provider.
+                Only attachments you select are downloaded for local PDF review;
+                nothing is added until you confirm Add. A PDF password used to open
+                a selected statement is not saved.
+              </p>
+              <p className="mt-3">
+                <strong className="text-foreground">Gmail:</strong> Google grants
+                read-only access to the entire mailbox, not just matching messages.
+                Maliya cannot send, change, or delete Gmail messages. Your iPhone
+                contacts Google directly, and keeps its refresh credential in
+                device-secure storage. Disconnect removes the local connection and
+                attempts to revoke Google access; if that fails or the device is
+                offline, remove Maliya in Google Account&apos;s third-party
+                connections. Maliya&apos;s use of information received from Google
+                APIs follows the Google API Services User Data Policy, including
+                its Limited Use requirements.
+              </p>
+              <p className="mt-3">
+                <strong className="text-foreground">Yahoo Mail:</strong> Yahoo
+                app passwords can permit reading, changing, and sending mail;
+                Yahoo does not offer a read-only app-password permission. Maliya
+                sends only read-only IMAP commands over a verified encrypted
+                connection to Yahoo and does not send, move, or delete messages.
+                Yahoo receives a fixed Maliya name, version, and iOS label.
+                The app password stays in device-secure storage. Disconnect
+                removes this device&apos;s copy but does not invalidate the
+                password at Yahoo; delete it separately in Yahoo Account Security.
+              </p>
+              <p className="mt-3">
+                <strong className="text-foreground">Personal Outlook:</strong>
+                Outlook.com, Hotmail, and Live personal accounts are supported,
+                not work or school Microsoft 365 accounts. Microsoft&apos;s
+                delegated Mail.Read permission covers the entire personal
+                mailbox but cannot send, change, or delete mail. User.Read is used
+                to validate the connected address, and offline_access supports
+                renewal with a device-held refresh credential. Your iPhone
+                contacts Microsoft Graph directly to find attachment details
+                without requesting message bodies, recipients, or unselected
+                file contents. Disconnect removes this
+                device&apos;s connection but does not revoke Microsoft&apos;s grant;
+                remove it separately in your Microsoft account.
+              </p>
+              <p className="mt-3">
+                Matching email details, selected PDFs, and any added statements
+                remain in app-private storage. No mailbox content, mail
+                credentials, source PDFs, or email-derived merchant descriptions
+                and corrections are sent to Maliya, Supabase, or AI providers.
+                Maliya can still use its downloaded shared merchant directory to
+                identify these purchases on your device. Manually imported,
+                eligible bank-printed descriptions and separately approved
+                merchant-wide corrections follow the sharing terms below.
+                Disconnect removes local searches and found-email details, not
+                statements already added. Delete all local data removes saved
+                mail sign-ins and records on this device; it does not delete
+                messages or necessarily revoke a provider&apos;s remote grant.
+                On iPhone, secure credentials may survive uninstall; a fresh
+                installation removes any surviving mail sign-ins before
+                offering email access.
+                Google, Yahoo, and Microsoft receive your direct sign-in and
+                search requests under their own privacy policies.
+              </p>
             </section>
 
             <section>
