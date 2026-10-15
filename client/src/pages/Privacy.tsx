@@ -15,7 +15,7 @@ export default function Privacy() {
             Privacy Policy
           </h1>
           <p className="text-sm text-muted-foreground mb-10">
-            Last updated: October 14, 2026
+            Last updated: October 15, 2026
           </p>
 
           <div className="space-y-10 text-muted-foreground leading-relaxed">
@@ -63,9 +63,9 @@ export default function Privacy() {
                   Feedback is sent only when you explicitly submit it.
                 </li>
                 <li>
-                  If you connect an email account in an iPhone build that offers
-                  Email, your chosen search settings, matching sender addresses,
-                  dates, filenames, and attachment identifiers stay on your device.
+                  If you connect an email account in a build that offers Email,
+                  your chosen search settings, matching sender addresses, dates,
+                  filenames, and attachment identifiers stay on your device.
                 </li>
               </ul>
             </section>
@@ -140,6 +140,86 @@ export default function Privacy() {
                 installation removes any surviving mail sign-ins before
                 offering email access.
                 Google, Yahoo, and Microsoft receive your direct sign-in and
+                search requests under their own privacy policies.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold font-display text-foreground mb-3">
+                Optional email statement discovery on Android
+              </h2>
+              <p>
+                In Android builds that offer Email, you may connect a personal
+                mailbox or continue importing PDFs manually. Maliya searches
+                possible statement attachments using your conditions while the
+                app is active. If you enable checks on open, it checks no more
+                than once every twelve hours after a successful check. It does
+                not run an unattended daily background mailbox job. Search
+                conditions do not narrow the permission your provider grants.
+                Only attachments you choose are downloaded for local PDF review;
+                nothing is added until you confirm Add. A password used to open
+                a PDF is never saved.
+              </p>
+              <p className="mt-3">
+                <strong className="text-foreground">Gmail:</strong> Google grants
+                gmail.readonly access to your entire mailbox, not just matching
+                emails. Maliya cannot send, change or delete your messages.
+                Android Google Play services handles permission and caches access
+                tokens on your device; Maliya stores your validated address and
+                search settings locally, not a Google refresh token. Your phone
+                searches Google directly. Disconnect removes the local connection
+                and attempts to revoke access, but Google may retain the grant if
+                that fails or you are offline; revoking may also affect other
+                Google scopes you previously granted Maliya. You can review and
+                remove it in Google Account&apos;s third-party connections. While
+                Google OAuth remains in Testing, only enrolled test accounts can
+                connect. Maliya&apos;s use of information from Google APIs follows
+                the Google API Services User Data Policy, including Limited Use.
+              </p>
+              <p className="mt-3">
+                <strong className="text-foreground">Yahoo Mail:</strong> A Yahoo
+                app password can allow reading, changing and sending mail; Yahoo
+                cannot limit it to read-only access. Maliya uses only read-only
+                IMAP commands over a verified encrypted connection to Yahoo and
+                does not send, move or delete messages. Yahoo receives your sign-in,
+                searches and a fixed Maliya name, version and Android label. The
+                app password stays in Android&apos;s secure local storage.
+                Disconnect removes the device&apos;s copy, not the password at
+                Yahoo; delete it separately in Yahoo Account Security.
+              </p>
+              <p className="mt-3">
+                <strong className="text-foreground">Personal Outlook:</strong>
+                Outlook.com, Hotmail.com and Live.com personal accounts are
+                supported, not work or school Microsoft 365 accounts. Mail.Read
+                covers the entire personal mailbox but cannot send, change or
+                delete messages. User.Read supplies your connected address; extra
+                profile fields are discarded. Microsoft&apos;s MSAL manages
+                offline_access and renews tokens in its on-device cache. Maliya
+                stores an opaque MSAL account binding, not a separate Android
+                Microsoft refresh token. A Microsoft broker app may also hold
+                sign-in state on this device. Without a broker, another app may
+                interfere with the custom browser callback; PKCE prevents it from
+                redeeming Maliya&apos;s authorization code. Maliya requests Inbox
+                and Archive message and attachment details from Graph, not message
+                bodies, recipients or unselected file bytes. Disconnect removes
+                this app&apos;s cached tokens and local connection but does not
+                revoke Microsoft&apos;s permission or remove a broker account;
+                review the grant separately in your Microsoft account.
+              </p>
+              <p className="mt-3">
+                Matching email details, selected PDFs, statements you add and
+                corrections remain in app-private storage. Android backup is
+                disabled; there is no account sync or cloud recovery. No mailbox
+                content, credentials, source PDFs or email-derived merchant
+                descriptions and corrections are sent to Maliya, Supabase or AI.
+                The downloaded merchant directory can still identify these
+                purchases on your device. Eligible manually imported printed
+                descriptions and separately approved merchant-wide corrections
+                follow the sharing terms below. Disconnect removes searches and
+                found-email details, not statements already added. Delete all
+                local data removes saved sign-ins and records on this device but
+                neither deletes messages nor guarantees remote grant revocation.
+                Google, Yahoo and Microsoft receive your direct sign-in and
                 search requests under their own privacy policies.
               </p>
             </section>
