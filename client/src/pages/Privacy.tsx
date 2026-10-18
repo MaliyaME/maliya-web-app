@@ -15,7 +15,7 @@ export default function Privacy() {
             Privacy Policy
           </h1>
           <p className="text-sm text-muted-foreground mb-10">
-            Last updated: October 15, 2026
+            Last updated: October 18, 2026
           </p>
 
           <div className="space-y-10 text-muted-foreground leading-relaxed">
@@ -126,12 +126,13 @@ export default function Privacy() {
               <p className="mt-3">
                 Matching email details, selected PDFs, and any added statements
                 remain in app-private storage. No mailbox content, mail
-                credentials, source PDFs, or email-derived merchant descriptions
-                and corrections are sent to Maliya, Supabase, or AI providers.
+                credentials or source PDFs are sent to Maliya, Supabase or AI providers.
                 Maliya can still use its downloaded shared merchant directory to
-                identify these purchases on your device. Manually imported,
-                eligible bank-printed descriptions and separately approved
-                merchant-wide corrections follow the sharing terms below.
+                identify these purchases on your device. In build 38 and later,
+                eligible email-derived descriptions and merchant-wide corrections
+                can be reviewed and sent through the optional Council process
+                below. In earlier builds without that process, email-derived
+                descriptions and corrections remain local.
                 Disconnect removes local searches and found-email details, not
                 statements already added. Delete all local data removes saved
                 mail sign-ins and records on this device; it does not delete
@@ -210,17 +211,39 @@ export default function Privacy() {
                 Matching email details, selected PDFs, statements you add and
                 corrections remain in app-private storage. Android backup is
                 disabled; there is no account sync or cloud recovery. No mailbox
-                content, credentials, source PDFs or email-derived merchant
-                descriptions and corrections are sent to Maliya, Supabase or AI.
+                content, credentials or source PDFs are sent to Maliya, Supabase or AI.
                 The downloaded merchant directory can still identify these
-                purchases on your device. Eligible manually imported printed
-                descriptions and separately approved merchant-wide corrections
-                follow the sharing terms below. Disconnect removes searches and
+                purchases on your device. In build 38 and later, eligible
+                email-derived descriptions and merchant-wide corrections can be
+                reviewed and sent through the optional Council process below.
+                In earlier builds without that process, email-derived descriptions
+                and corrections remain local. Disconnect removes searches and
                 found-email details, not statements already added. Delete all
                 local data removes saved sign-ins and records on this device but
                 neither deletes messages nor guarantees remote grant revocation.
                 Google, Yahoo and Microsoft receive your direct sign-in and
                 search requests under their own privacy policies.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold font-display text-foreground mb-3">
+                Optional Council sharing in build 38 and later
+              </h2>
+              <p>
+                File and email imports use the same optional Council process.
+                Before each batch is sent, you review the eligible bank-printed
+                descriptions and tap Send to Council. Only those approved
+                descriptions and their fingerprints are sent for merchant
+                identification. Merchant-wide name, category and subcategory
+                corrections can also be reviewed and sent with their eligible
+                descriptions. Saving a correction does not send it to Council.
+              </p>
+              <p className="mt-3">
+                A description can itself contain names, references, dates, amounts
+                or card fragments. Your original PDFs, ledger, private notes and
+                single-purchase edits stay on your device. The service and provider
+                terms below apply to the descriptions and corrections you approve.
               </p>
             </section>
 
