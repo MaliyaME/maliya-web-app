@@ -15,7 +15,7 @@ export default function Privacy() {
             Privacy Policy
           </h1>
           <p className="text-sm text-muted-foreground mb-10">
-            Last updated: October 18, 2026
+            Last updated: October 22, 2026
           </p>
 
           <div className="space-y-10 text-muted-foreground leading-relaxed">
@@ -53,9 +53,9 @@ export default function Privacy() {
                   references, dates, amounts, or card fragments.
                 </li>
                 <li>
-                  From version 1.0.5, a merchant name or category you choose for
-                  every purchase like it, sent with that bank-printed description
-                  and its fingerprint for review.
+                  A proposed merchant name or category for matching purchases,
+                  sent with its bank-printed description and fingerprint only
+                  after you review and send a Council batch in build 38 and later.
                 </li>
                 <li>
                   Optional technical crash reports if you enable diagnostics, and
@@ -333,12 +333,14 @@ export default function Privacy() {
                 Merchant corrections
               </h2>
               <p>
-                From version 1.0.5, when you name a merchant or change its category
-                for every purchase like it, the app sends that name or category to
-                Maliya with the bank-printed description and its fingerprint, for
-                review. Nothing is sent until you choose Continue on the in-app
-                explanation. To keep a correction on your device only, choose
-                &ldquo;This purchase&rdquo;. Single-purchase edits, notes, recurring
+                In build 38 and later, naming a merchant or changing its category
+                saves the correction on your device first, including corrections
+                for matching purchases. To share an eligible merchant-wide
+                correction, review its printed description and proposed change in
+                a Council batch, then tap Send to Council. The app sends only that
+                approved description, fingerprint and proposed change for review.
+                You can keep any correction local by not sending it.
+                Single-purchase edits, notes, recurring
                 marks, &ldquo;Not a business&rdquo;, filing resets, amounts, dates,
                 card details, and statements are never sent.
               </p>
@@ -414,7 +416,7 @@ export default function Privacy() {
               </h2>
               <ul className="list-disc pl-5 space-y-2">
                 <li>Review the sharing disclosure before selecting a statement.</li>
-                <li>Choose &ldquo;This purchase&rdquo; to keep a correction on your device only.</li>
+                <li>Keep corrections on your device, or review and send eligible merchant-wide corrections in a Council batch.</li>
                 <li>Delete the app's local data from Profile and data.</li>
                 <li>Choose where to save exports and remove them yourself.</li>
                 <li>Opt out of any marketing communications.</li>
