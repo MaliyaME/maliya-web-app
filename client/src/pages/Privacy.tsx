@@ -15,7 +15,7 @@ export default function Privacy() {
             Privacy Policy
           </h1>
           <p className="text-sm text-muted-foreground mb-10">
-            Last updated: October 22, 2026
+            Last updated: October 25, 2026
           </p>
 
           <div className="space-y-10 text-muted-foreground leading-relaxed">
@@ -368,6 +368,27 @@ export default function Privacy() {
                 The built-in reader processes supported PDFs on your device, PDF
                 passwords are never saved, and statements are only added after
                 extracted figures reconcile with printed totals.
+              </p>
+              <h3 className="text-lg font-semibold text-foreground mt-5 mb-2">
+                Protection of sensitive Google data
+              </h3>
+              <p>
+                The app exchanges Gmail data with Google over HTTPS. The phone
+                requests email matches directly from Google. Only attachments
+                you choose are downloaded, and the app stores the connected
+                address, search settings, selected PDFs, financial records, and
+                personal edits in its private on-device storage. Operating-system
+                backups are disabled for this data; Maliya has no account sync or
+                cloud recovery. On iPhone, the Gmail refresh credential is kept
+                in the iOS Keychain with device-only accessibility while the
+                device is unlocked. On Android, Google Play services manages the
+                Gmail grant and its access-token cache; Maliya does not store a
+                separate Gmail refresh token. Email content, credentials, PDFs,
+                transaction fields, and notes are not sent to Maliya&apos;s
+                servers. If you choose to send a Council batch, only the eligible
+                bank-printed descriptions, their fingerprints, and the merchant
+                or category corrections you approve are sent over HTTPS for
+                identification and review.
               </p>
             </section>
 
