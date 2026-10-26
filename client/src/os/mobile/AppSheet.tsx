@@ -43,7 +43,12 @@ export function AppSheet({ app, onClose }: { app: AppDef; onClose: () => void })
         </div>
       </header>
 
-      <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
+      <div
+        tabIndex={0}
+        role="region"
+        aria-label={`${app.title} content`}
+        className="min-h-0 flex-1 overflow-y-auto overscroll-contain outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
+      >
         <Component />
       </div>
 

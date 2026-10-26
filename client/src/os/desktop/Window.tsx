@@ -5,6 +5,9 @@ import { cn } from "@/lib/utils";
 import type { AppDef } from "../apps";
 import { DOCK_CLEARANCE, type WindowState } from "../types";
 
+// AnimatePresence stops mounting new windows after a zero-duration exit, so reduced motion uses a near-instant one.
+const INSTANT = 0.01;
+
 interface WindowProps {
   app: AppDef;
   state: WindowState;
@@ -86,8 +89,8 @@ export function Window({
           ? { opacity: 0, scale: 0.55, transitionEnd: { visibility: "hidden" } }
           : { opacity: 1, scale: 1, visibility: "visible" }
       }
-      exit={{ opacity: 0, scale: 0.94, transition: { duration: reduceMotion ? 0 : 0.15 } }}
-      transition={reduceMotion ? { duration: 0 } : { type: "spring", stiffness: 380, damping: 32 }}
+      exit={{ opacity: 0, scale: 0.94, transition: { duration: reduceMotion ? INSTANT : 0.15 } }}
+      transition={reduceMotion ? { duration: INSTANT } : { type: "spring", stiffness: 380, damping: 32 }}
       style={{
         ...frame,
         x: dragX,
@@ -153,7 +156,12 @@ export function Window({
         </div>
       </div>
 
-      <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
+      <div
+        tabIndex={0}
+        role="region"
+        aria-label={`${app.title} content`}
+        className="min-h-0 flex-1 overflow-y-auto overscroll-contain outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
+      >
         <Component />
       </div>
     </motion.div>

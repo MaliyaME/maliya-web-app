@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import { ArrowRight, Check, CircleAlert, FileText, RotateCcw, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -132,11 +132,12 @@ export default function HowItWorks() {
           {rows.map((row, index) => {
             const read = index < shown;
             return (
-              <motion.li
+              <li
                 key={row.name}
-                animate={{ opacity: read ? 1 : 0.45 }}
-                transition={{ duration: reduceMotion ? 0 : 0.25 }}
-                className="flex items-center gap-3 border-b border-border/40 px-4 py-2.5 last:border-b-0"
+                className={cn(
+                  "flex items-center gap-3 border-b border-border/40 px-4 py-2.5 transition-colors duration-300 last:border-b-0 motion-reduce:transition-none",
+                  read && "bg-primary/5",
+                )}
               >
                 <span
                   aria-hidden="true"
@@ -152,7 +153,7 @@ export default function HowItWorks() {
                   <p className="text-xs text-muted-foreground">{row.date}</p>
                 </div>
                 <span className="text-sm tabular-nums">{read ? formatAed(readCents(row, scenario)) : "—"}</span>
-              </motion.li>
+              </li>
             );
           })}
         </ul>
