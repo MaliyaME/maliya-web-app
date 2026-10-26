@@ -118,3 +118,29 @@
     @apply bg-gradient-to-br from-primary to-primary/80;
   }
 }
+
+/* The OS fills the viewport, so the page itself must not scroll or rubber-band. */
+html.os-active,
+html.os-active body {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+@keyframes os-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .os-breathe {
+    animation: os-breathe 16s ease-in-out infinite;
+  }
+}

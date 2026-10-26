@@ -3,7 +3,7 @@
 This repository is a static Vite/React marketing site for Maliya, deployed to Vercel. There is no backend server or API.
 
 ## Project Structure & Module Organization
-- `client/` contains the React app (entry at `client/src/main.tsx`, pages in `client/src/pages/`, shared UI in `client/src/components/`, static files in `client/public/`).
+- `client/` contains the React app (entry at `client/src/main.tsx`, shared UI in `client/src/components/`, static files in `client/public/`). The home route and the former Product, Download, Changelog, Security and Press pages are apps inside a lock-screen and desktop shell in `client/src/os/` (apps in `client/src/os/apps/`, routes mapped in `client/src/os/apps.ts`). `client/src/pages/` holds only Privacy, Terms and the 404 page.
 - `supabase/migrations/` records the retired waitlist table (`reg.waitlist_signups`), which still holds past signups; nothing in this repo reads or writes it.
 - `vercel.json` defines the build output, SPA rewrite, security headers, and asset caching; configuration files live at the repo root.
 
