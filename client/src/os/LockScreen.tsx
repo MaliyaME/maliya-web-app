@@ -25,18 +25,18 @@ const notifications: LockNotification[] = [
     opens: "get",
   },
   {
+    id: "try",
+    title: "Try Maliya right here",
+    body: "Explore a sample month in a working copy of the app. Nothing is saved or sent.",
+    time: "2m ago",
+    opens: "simulator",
+  },
+  {
     id: "private",
     title: "Stays on your phone",
     body: "No bank login. No account. No cloud sync. Tap to see what is shared, and when.",
-    time: "2m ago",
-    opens: "security",
-  },
-  {
-    id: "checked",
-    title: "See a statement get checked",
-    body: "Maliya checks the numbers against the printed totals before a statement is added. Tap to try it.",
     time: "5m ago",
-    opens: "howItWorks",
+    opens: "security",
   },
 ];
 

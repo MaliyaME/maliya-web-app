@@ -16,7 +16,7 @@ const privacyIcon: IconSpec = { kind: "glyph", Icon: Lock, from: "#3b9078", to: 
 const termsIcon: IconSpec = { kind: "glyph", Icon: ScrollText, from: "#8a9a94", to: "#3b4642" };
 const mailIcon: IconSpec = { kind: "glyph", Icon: Mail, from: "#5ccbff", to: "#1f86e6" };
 
-const gridOrder: AppId[] = ["howItWorks", "film", "news", "press"];
+const gridOrder: AppId[] = ["simulator", "howItWorks", "film", "news", "press"];
 
 const labelClass = "text-[12px] font-medium leading-tight text-foreground";
 const tileClass =

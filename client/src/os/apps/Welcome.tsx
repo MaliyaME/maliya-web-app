@@ -1,4 +1,4 @@
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/use-theme";
 import { highlights, supportedBanks } from "../content";
@@ -46,10 +46,11 @@ export default function Welcome() {
             </Button>
             <Button
               variant="outline"
-              onClick={() => openApp("features")}
+              onClick={() => openApp("simulator")}
               className="h-12 rounded-full bg-background/50 px-6 text-base"
             >
-              View features
+              <Smartphone aria-hidden="true" />
+              Try it here
             </Button>
           </div>
           <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground">

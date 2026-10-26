@@ -6,6 +6,7 @@ import { APPS, appForPath } from "./apps";
 import { useMediaQuery } from "./hooks";
 import { LockScreen } from "./LockScreen";
 import { MobileHome } from "./mobile/MobileHome";
+import { preloadSimulator } from "./apps/TrySimulator";
 import { OSContext } from "./OSContext";
 import { initialState, reducer, topWindow } from "./state";
 import { DOCK_CLEARANCE, MENU_BAR_HEIGHT, type AppId, type Frame, type Layout } from "./types";
@@ -110,8 +111,14 @@ export default function MaliyaOS() {
     shellRef.current?.toggleAttribute("inert", locked);
   }, [locked]);
 
+  useEffect(() => {
+    if (locked) return;
+    const id = window.setTimeout(() => void preloadSimulator(), 1500);
+    return () => window.clearTimeout(id);
+  }, [locked]);
+
   return (
-    <OSContext.Provider value={{ openApp, lock }}>
+    <OSContext.Provider value={{ layout, openApp, lock }}>
       <main className="fixed inset-0 overflow-hidden bg-[#02281f]">
         <h1 className="sr-only">Maliya: your money, in focus</h1>
 

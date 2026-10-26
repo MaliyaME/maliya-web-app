@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import { ArrowDownToLine, FileCheck2, LayoutGrid, Newspaper, Play, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowDownToLine, FileCheck2, LayoutGrid, Newspaper, Play, ShieldCheck, Smartphone, Sparkles } from "lucide-react";
 import type { IconSpec } from "./AppIcon";
 import type { AppId } from "./types";
 import Features from "./apps/Features";
@@ -8,6 +8,7 @@ import HowItWorks from "./apps/HowItWorks";
 import LaunchFilm from "./apps/LaunchFilm";
 import PressKit from "./apps/PressKit";
 import Security from "./apps/Security";
+import TrySimulator from "./apps/TrySimulator";
 import Welcome from "./apps/Welcome";
 import WhatsNew from "./apps/WhatsNew";
 
@@ -28,6 +29,14 @@ export const APPS: Record<AppId, AppDef> = {
     icon: { kind: "image", src: "/app_icon.png" },
     size: { width: 900, height: 580 },
     Component: Welcome,
+  },
+  simulator: {
+    id: "simulator",
+    title: "Try Maliya",
+    route: "/try",
+    icon: { kind: "glyph", Icon: Smartphone, from: "#5b7cf5", to: "#2a3db0" },
+    size: { width: 620, height: 1100 },
+    Component: TrySimulator,
   },
   features: {
     id: "features",
@@ -89,6 +98,7 @@ export const APPS: Record<AppId, AppDef> = {
 
 export const DOCK_ORDER: AppId[] = [
   "welcome",
+  "simulator",
   "features",
   "howItWorks",
   "film",
@@ -102,7 +112,7 @@ export const MOBILE_DOCK_ORDER: AppId[] = ["welcome", "get", "features", "securi
 
 // Routes that open the OS. /privacy and /terms stay plain pages.
 export const OS_PATH_PATTERN =
-  /^\/(?:product|download|waitlist|changelog|security|press|film|how-it-works)?\/?$/;
+  /^\/(?:product|download|waitlist|changelog|security|press|film|how-it-works|try)?\/?$/;
 
 export function appForPath(path: string): AppId | null {
   const normalized = path.length > 1 ? path.replace(/\/+$/, "") : path;

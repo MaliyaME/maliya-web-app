@@ -119,6 +119,69 @@
   }
 }
 
+/* Maliya app simulator tokens, sampled from the app's own screenshots. */
+.sim {
+  --s-bg: #f8f6ef;
+  --s-surface: #fdfcf8;
+  --s-ink: #111514;
+  --s-muted: #575d57;
+  --s-faint: #8d928c;
+  --s-line: #eae9e2;
+  --s-border: #e8e7e4;
+  --s-brand: #005b46;
+  --s-on-brand: #f8f6ef;
+  --s-good: #23634f;
+  --s-warn: #99392d;
+  --s-pill: #edf3ed;
+  --s-tile: #eeefea;
+  --s-track: #dfded7;
+  --s-chart: #eae9e2;
+  --s-bar: #7c857f;
+  --s-bubble: #f1eee5;
+  --s-press: rgba(17, 21, 20, 0.07);
+  --s-scrim: rgba(17, 21, 20, 0.4);
+  color: var(--s-ink);
+  font-family: "Instrument Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.sim-dark {
+  --s-bg: #0b0e0d;
+  --s-surface: #171b19;
+  --s-ink: #f8f6ef;
+  --s-muted: #99a59f;
+  --s-faint: #6f7a74;
+  --s-line: #191c1b;
+  --s-border: #39423d;
+  --s-brand: #a5d6c4;
+  --s-on-brand: #0b0e0d;
+  --s-good: #a5d6bc;
+  --s-warn: #ed9987;
+  --s-pill: #212d27;
+  --s-tile: #272d29;
+  --s-track: #2a2d2b;
+  --s-chart: #191c1b;
+  --s-bar: #68706b;
+  --s-bubble: #1e2422;
+  --s-press: rgba(248, 246, 239, 0.09);
+  --s-scrim: rgba(0, 0, 0, 0.6);
+}
+:where(.sim) :is(h1, h2, h3, h4, h5, h6) {
+  color: inherit;
+  font-family: inherit;
+  letter-spacing: normal;
+}
+.sim-scroll {
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.sim-scroll::-webkit-scrollbar {
+  display: none;
+}
+.sim button,
+.sim [role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* The OS fills the viewport, so the page itself must not scroll or rubber-band. */
 html.os-active,
 html.os-active body {

@@ -1,7 +1,8 @@
 import { createContext, useContext } from "react";
-import type { AppId } from "./types";
+import type { AppId, Layout } from "./types";
 
 interface OSContextValue {
+  layout: Layout;
   openApp: (id: AppId) => void;
   lock: () => void;
 }
