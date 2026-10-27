@@ -64,7 +64,7 @@ export function MobileHome({
 
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <Wallpaper variant="desktop" />
+      <Wallpaper variant="desktop" paused={topId !== null} />
 
       <div ref={homeRef} className="relative flex h-full flex-col overflow-y-auto overscroll-contain px-4 pb-3 pt-4">
         <div className="flex items-center justify-between">

@@ -3,12 +3,14 @@ import { Moon, RotateCcw, Sun } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/hooks/use-theme";
+import { CHROME } from "@/os/chrome";
 import { useOS } from "@/os/OSContext";
 import { useElementSize } from "@/os/hooks";
 import { AppRoot } from "./AppRoot";
 import { SimProvider, useSim } from "./context";
 import type { Route } from "./data/types";
 import { DeviceFrame, FRAME_H, FRAME_W, INSET } from "./DeviceFrame";
+import { HomeIndicator } from "./ui/HomeIndicator";
 import type { Appearance } from "./state";
 
 const TIPS: Record<Route["name"], string> = {
@@ -152,8 +154,11 @@ function Stage({ scale, dark, compact, onAppearance, onRestart, booted }: { scal
   );
 }
 
+// On a real phone the browser provides the status bar, so only the home indicator needs room.
+const PHONE_INSET = { top: 0, bottom: 22 };
+
 export default function Simulator() {
-  const { layout } = useOS();
+  const { layout, setChromeColor } = useOS();
   const { isDark: siteDark } = useTheme();
   const reduce = useReducedMotion();
   const [appearance, setAppearance] = useState<Appearance>("auto");
@@ -162,6 +167,13 @@ export default function Simulator() {
   const [ref, size] = useElementSize<HTMLDivElement>();
   const dark = appearance === "auto" ? siteDark : appearance === "dark";
   const framed = layout === "desktop";
+
+  // On a phone the app fills the screen, so the browser's bars take its colour, which can differ from the site's.
+  useEffect(() => {
+    if (framed) return;
+    setChromeColor(dark ? CHROME.dark : CHROME.light);
+    return () => setChromeColor(null);
+  }, [framed, dark, setChromeColor]);
 
   useEffect(() => {
     setBooted(false);
@@ -179,12 +191,13 @@ export default function Simulator() {
       style={framed ? { backgroundImage: "radial-gradient(55% 45% at 50% 42%, rgba(24,140,108,0.30), transparent 72%), radial-gradient(40% 30% at 50% 100%, rgba(0,91,70,0.35), transparent 70%)" } : undefined}
     >
       <MotionConfig transformPagePoint={(point) => ({ x: point.x / scale, y: point.y / scale })}>
-        <SimProvider key={run} dark={dark} scale={scale} inset={framed ? INSET : { top: 0, bottom: 0 }} appearance={appearance} onAppearance={setAppearance} onRestart={() => setRun((n) => n + 1)}>
+        <SimProvider key={run} dark={dark} scale={scale} inset={framed ? INSET : PHONE_INSET} stepHistory={!framed} appearance={appearance} onAppearance={setAppearance} onRestart={() => setRun((n) => n + 1)}>
           {framed ? (
             size.width > 0 && <Stage scale={scale} dark={dark} compact={compact} onAppearance={setAppearance} onRestart={() => setRun((n) => n + 1)} booted={booted} />
           ) : (
             <div className={cn("sim relative h-full w-full overflow-hidden bg-sim-bg", dark && "sim-dark")}>
               <AppRoot />
+              <HomeIndicator />
             </div>
           )}
         </SimProvider>

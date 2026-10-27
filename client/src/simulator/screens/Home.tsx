@@ -52,7 +52,7 @@ export default function Home() {
               type="button"
               onClick={() => openSheet({ kind: "months" })}
               aria-label={`${label}. Choose a month`}
-              className="-ml-1 flex items-center gap-[8px] rounded-lg px-1 py-1 text-[19px] font-semibold tracking-[-0.02em] outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:opacity-60"
+              className="-ml-1 flex items-center gap-[8px] whitespace-nowrap rounded-lg px-1 py-1 text-[19px] font-semibold tracking-[-0.02em] outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:opacity-60"
             >
               {label}
               <ChevronDown className="mt-px h-[15px] w-[15px]" strokeWidth={1.8} aria-hidden="true" />
@@ -70,7 +70,7 @@ export default function Home() {
                     disabled={disabled}
                     aria-label={direction < 0 ? "Previous month" : "Next month"}
                     onClick={() => step(direction)}
-                    className={cn("flex h-10 w-[44px] items-center justify-center rounded-full outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:bg-sim-press", disabled ? "text-sim-faint/60" : "text-sim-muted")}
+                    className={cn("sim-hit flex h-10 w-9 items-center justify-center rounded-full outline-none min-[360px]:w-[44px] focus-visible:ring-2 focus-visible:ring-sim-brand active:bg-sim-press", disabled ? "text-sim-faint/60" : "text-sim-muted")}
                   >
                     <Icon className="h-[18px] w-[18px]" strokeWidth={1.7} aria-hidden="true" />
                   </button>
@@ -130,7 +130,7 @@ export default function Home() {
                 type="button"
                 aria-expanded={more}
                 onClick={() => setMore((value) => !value)}
-                className="mt-[40.4px] flex items-center gap-1.5 rounded-md text-[14.7px] leading-5 text-sim-muted outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:opacity-60"
+                className="sim-hit mt-[40.4px] flex items-center gap-1.5 rounded-md text-[14.7px] leading-5 text-sim-muted outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:opacity-60"
               >
                 {more ? "See less" : "See 1 more"}
                 <ChevronDown className={cn("h-[15px] w-[15px] transition-transform", more && "rotate-180")} strokeWidth={1.6} aria-hidden="true" />

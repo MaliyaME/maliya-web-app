@@ -52,7 +52,7 @@ export default function Activity() {
               type="button"
               aria-pressed={cat === id}
               onClick={() => setCat(id)}
-              className={cn("shrink-0 rounded-full px-4 py-2 text-[15px] outline-none transition-colors focus-visible:ring-2 focus-visible:ring-sim-brand", cat === id ? "bg-sim-brand font-medium text-sim-onbrand" : "bg-sim-bubble text-sim-ink")}
+              className={cn("sim-hit shrink-0 rounded-full px-4 py-2 text-[15px] outline-none [--hit-x:2px] [--hit-y:4px] transition-colors focus-visible:ring-2 focus-visible:ring-sim-brand", cat === id ? "bg-sim-brand font-medium text-sim-onbrand" : "bg-sim-bubble text-sim-ink")}
             >
               {id === "all" ? "All" : CATEGORIES[id].name}
             </button>

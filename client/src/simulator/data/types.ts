@@ -64,3 +64,5 @@ export interface PurchaseFilter {
 }
 
 export type TabId = "home" | "activity" | "ask" | "statements";
+
+export const TAB_IDS: readonly TabId[] = ["home", "activity", "ask", "statements"];

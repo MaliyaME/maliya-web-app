@@ -121,47 +121,47 @@
 
 /* Maliya app simulator tokens, sampled from the app's own screenshots. */
 .sim {
-  --s-bg: #f8f6ef;
-  --s-surface: #fdfcf8;
-  --s-ink: #111514;
-  --s-muted: #575d57;
-  --s-faint: #8d928c;
-  --s-line: #eae9e2;
-  --s-border: #e8e7e4;
-  --s-brand: #005b46;
-  --s-on-brand: #f8f6ef;
-  --s-good: #23634f;
-  --s-warn: #99392d;
-  --s-pill: #edf3ed;
-  --s-tile: #eeefea;
-  --s-track: #dfded7;
-  --s-chart: #eae9e2;
-  --s-bar: #7c857f;
-  --s-bubble: #f1eee5;
+  --s-bg: 248 246 239;
+  --s-surface: 253 252 248;
+  --s-ink: 17 21 20;
+  --s-muted: 87 93 87;
+  --s-faint: 141 146 140;
+  --s-line: 234 233 226;
+  --s-border: 232 231 228;
+  --s-brand: 0 91 70;
+  --s-on-brand: 248 246 239;
+  --s-good: 35 99 79;
+  --s-warn: 153 57 45;
+  --s-pill: 237 243 237;
+  --s-tile: 238 239 234;
+  --s-track: 223 222 215;
+  --s-chart: 234 233 226;
+  --s-bar: 124 133 127;
+  --s-bubble: 241 238 229;
   --s-press: rgba(17, 21, 20, 0.07);
   --s-scrim: rgba(17, 21, 20, 0.4);
-  color: var(--s-ink);
+  color: rgb(var(--s-ink));
   font-family: "Instrument Sans", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 .sim-dark {
-  --s-bg: #0b0e0d;
-  --s-surface: #171b19;
-  --s-ink: #f8f6ef;
-  --s-muted: #99a59f;
-  --s-faint: #6f7a74;
-  --s-line: #191c1b;
-  --s-border: #39423d;
-  --s-brand: #a5d6c4;
-  --s-on-brand: #0b0e0d;
-  --s-good: #a5d6bc;
-  --s-warn: #ed9987;
-  --s-pill: #212d27;
-  --s-tile: #272d29;
-  --s-track: #2a2d2b;
-  --s-chart: #191c1b;
-  --s-bar: #68706b;
-  --s-bubble: #1e2422;
+  --s-bg: 11 14 13;
+  --s-surface: 23 27 25;
+  --s-ink: 248 246 239;
+  --s-muted: 153 165 159;
+  --s-faint: 111 122 116;
+  --s-line: 25 28 27;
+  --s-border: 57 66 61;
+  --s-brand: 165 214 196;
+  --s-on-brand: 11 14 13;
+  --s-good: 165 214 188;
+  --s-warn: 237 153 135;
+  --s-pill: 33 45 39;
+  --s-tile: 39 45 41;
+  --s-track: 42 45 43;
+  --s-chart: 25 28 27;
+  --s-bar: 104 112 107;
+  --s-bubble: 30 36 34;
   --s-press: rgba(248, 246, 239, 0.09);
   --s-scrim: rgba(0, 0, 0, 0.6);
 }
@@ -181,8 +181,32 @@
 .sim [role="button"] {
   -webkit-tap-highlight-color: transparent;
 }
+/* On a phone: no double-tap zoom or tap delay, no long-press callout, and typing still selects text. */
+.sim :is(button, a, [role="tab"], [role="button"]) {
+  touch-action: manipulation;
+}
+.sim,
+.sim * {
+  -webkit-touch-callout: none;
+}
+.sim :is(input, textarea) {
+  -webkit-user-select: text;
+  user-select: text;
+}
+/* A larger invisible tap target (about 44px) that moves nothing on screen. */
+.sim .sim-hit {
+  position: relative;
+}
+.sim .sim-hit::after {
+  content: "";
+  position: absolute;
+  inset: calc(var(--hit-y, 9px) * -1) calc(var(--hit-x, 8px) * -1);
+}
 
 /* The OS fills the viewport, so the page itself must not scroll or rubber-band. */
+html.os-active :is(button, a, [role="button"]) {
+  touch-action: manipulation;
+}
 html.os-active,
 html.os-active body {
   height: 100%;
@@ -205,5 +229,8 @@ html.os-active body {
 @media (prefers-reduced-motion: no-preference) {
   .os-breathe {
     animation: os-breathe 16s ease-in-out infinite;
+  }
+  .os-breathe.os-paused {
+    animation-play-state: paused;
   }
 }

@@ -28,7 +28,26 @@ export interface SimState {
   pendingAsk: string | null;
 }
 
+/** Where the visitor is in the app. This is what browser history keeps for each step on a phone. */
+export interface Nav {
+  tab: TabId;
+  stacks: Record<TabId, Route[]>;
+  sheet: SheetState | null;
+}
+
+export const navOf = ({ tab, stacks, sheet }: SimState): Nav => ({ tab, stacks, sheet });
+
+// Equal navigation gives equal text, whatever order the keys were written in.
+export function navKey(nav: Nav): string {
+  return JSON.stringify(nav, (_key, value: unknown) =>
+    value && typeof value === "object" && !Array.isArray(value)
+      ? Object.fromEntries(Object.entries(value).sort(([a], [b]) => (a < b ? -1 : 1)))
+      : value,
+  );
+}
+
 export type Action =
+  | { type: "restore"; nav: Nav }
   | { type: "push"; route: Route }
   | { type: "pop" }
   | { type: "tab"; tab: TabId }
@@ -60,6 +79,8 @@ export function initialState(appearance: Appearance = "auto"): SimState {
 
 export function reducer(state: SimState, action: Action): SimState {
   switch (action.type) {
+    case "restore":
+      return navKey(navOf(state)) === navKey(action.nav) ? state : { ...state, ...action.nav };
     case "push":
       return { ...state, stacks: { ...state.stacks, [state.tab]: [...state.stacks[state.tab], action.route] } };
     case "pop": {

@@ -50,12 +50,13 @@ export function Stack({
   onPop: () => void;
   renderRoute: (route: Route) => ReactNode;
 }) {
-  const { scale } = useSim();
+  const { scale, stepHistory } = useSim();
   const reduce = useReducedMotion();
   const box = useRef<HTMLDivElement>(null);
   const p = useMotionValue(0);
   const previous = useRef(routes.length);
   const busy = useRef(false);
+  const animation = useRef<{ stop: () => void } | null>(null);
   const drag = useRef<{ x: number; t: number; v: number } | null>(null);
 
   useLayoutEffect(() => {
@@ -63,9 +64,11 @@ export function Stack({
       if (reduce) p.set(0);
       else {
         p.set(1);
-        animate(p, 0, { duration: 0.42, ease: IOS_EASE });
+        animation.current = animate(p, 0, { duration: 0.42, ease: IOS_EASE });
       }
     } else if (routes.length < previous.current) {
+      // A pop that did not start here (the system back gesture) must not leave an old animation running.
+      animation.current?.stop();
       p.set(0);
       busy.current = false;
     }
@@ -90,7 +93,7 @@ export function Stack({
     (from: number) => {
       busy.current = true;
       if (reduce) return onPop();
-      animate(p, 1, { duration: 0.14 + (1 - from) * 0.3, ease: IOS_EASE, onComplete: onPop });
+      animation.current = animate(p, 1, { duration: 0.14 + (1 - from) * 0.3, ease: IOS_EASE, onComplete: onPop });
     },
     [onPop, p, reduce],
   );
@@ -122,7 +125,7 @@ export function Stack({
     if (!d) return;
     const progress = p.get();
     if (progress > 0.35 || d.v > 0.0012) finishPop(progress);
-    else animate(p, 0, { duration: 0.28, ease: IOS_EASE });
+    else animation.current = animate(p, 0, { duration: 0.28, ease: IOS_EASE });
   };
 
   return (
@@ -133,7 +136,7 @@ export function Stack({
             {renderRoute(route)}
           </Layer>
         ))}
-        {routes.length > 1 && (
+        {routes.length > 1 && !stepHistory && (
           <div
             data-no-drag
             aria-hidden="true"

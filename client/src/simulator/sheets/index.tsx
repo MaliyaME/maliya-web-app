@@ -10,6 +10,7 @@ import { MONTH_IDS, type CategoryId } from "../data/types";
 import type { Appearance, SheetState } from "../state";
 import { Sheet } from "../ui/Sheet";
 import { appStoreUrl } from "@/os/content";
+import { useOS } from "@/os/OSContext";
 
 function MonthList({ value, onPick, title }: { value: string; onPick: (month: (typeof MONTH_IDS)[number]) => void; title: string }) {
   const { ledger, closeSheet } = useSim();
@@ -47,7 +48,7 @@ function Segmented<T extends string>({ label, value, options, onChange }: { labe
       <legend className="mb-2 text-[14px] font-medium text-sim-muted">{label}</legend>
       <div className="grid gap-1 rounded-[14px] bg-sim-bubble p-1" style={{ gridTemplateColumns: `repeat(${options.length}, minmax(0, 1fr))` }}>
         {options.map(([id, text]) => (
-          <label key={id} className={cn("cursor-pointer rounded-[11px] px-3 py-2.5 text-center text-[15px] font-medium transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-sim-brand", value === id ? "bg-sim-surface shadow-sm" : "text-sim-muted")}>
+          <label key={id} className={cn("cursor-pointer rounded-[11px] px-1.5 py-2.5 text-center text-[15px] font-medium transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-sim-brand", value === id ? "bg-sim-surface shadow-sm" : "text-sim-muted")}>
             <input type="radio" name={label} checked={value === id} onChange={() => onChange(id)} className="sr-only" />
             {text}
           </label>
@@ -59,6 +60,7 @@ function Segmented<T extends string>({ label, value, options, onChange }: { labe
 
 function QuickMenu() {
   const { closeSheet, state, setAppearance, restart } = useSim();
+  const { layout, closeApp } = useOS();
   return (
     <Sheet title="Quick menu" onClose={closeSheet}>
       <h2 className="text-[22px] font-semibold tracking-[-0.02em]">Quick menu</h2>
@@ -73,7 +75,12 @@ function QuickMenu() {
       <p className="mt-6 rounded-2xl bg-sim-bubble p-4 text-[14.5px] leading-[1.5] text-sim-muted">
         This is a demo with sample data. Nothing you do here is saved or sent anywhere, and restarting brings everything back to how it started.
       </p>
-      <button type="button" onClick={() => { closeSheet(); restart(); }} className="mt-4 h-12 w-full rounded-full border border-sim-line text-[16.5px] font-medium outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:bg-sim-press">
+      {layout === "mobile" && (
+        <button type="button" onClick={() => closeApp("simulator")} className="mt-4 h-12 w-full rounded-full border border-sim-border text-[16.5px] font-medium outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:bg-sim-press">
+          Back to the home screen
+        </button>
+      )}
+      <button type="button" onClick={restart} className="mt-4 h-12 w-full rounded-full border border-sim-line text-[16.5px] font-medium outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:bg-sim-press">
         Restart the demo
       </button>
       <a href={appStoreUrl} className="mt-3 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-sim-brand text-[16.5px] font-semibold text-sim-onbrand outline-none focus-visible:ring-2 focus-visible:ring-sim-brand focus-visible:ring-offset-2 focus-visible:ring-offset-sim-surface">

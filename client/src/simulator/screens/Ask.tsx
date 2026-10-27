@@ -128,7 +128,7 @@ export default function Ask() {
       <Header
         title={<span className="text-[12.5px] font-medium uppercase tracking-[0.1em] text-sim-muted">Ask Maliya</span>}
         right={
-          <button type="button" onClick={() => dispatch({ type: "askClear" })} className="mr-[4.7px] rounded-md px-1 py-2 text-[12.6px] font-medium text-sim-brand outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:opacity-60">
+          <button type="button" onClick={() => dispatch({ type: "askClear" })} className="sim-hit mr-[4.7px] rounded-md px-1 py-2 text-[12.6px] [--hit-x:8px] [--hit-y:2px] font-medium text-sim-brand outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:opacity-60">
             Start over
           </button>
         }
@@ -188,13 +188,13 @@ export default function Ask() {
             placeholder="Ask about a month, category or charge"
             enterKeyHint="send"
             autoComplete="off"
-            className="min-w-0 flex-1 bg-transparent text-[15.9px] outline-none placeholder:text-sim-faint"
+            className="min-w-0 flex-1 bg-transparent text-[16px] outline-none placeholder:text-sim-faint"
           />
           <button type="submit" aria-label="Send" disabled={!text.trim() || busy} className={cn("flex h-[33.7px] w-[33.7px] shrink-0 items-center justify-center rounded-full text-sim-onbrand outline-none transition-colors focus-visible:ring-2 focus-visible:ring-sim-brand focus-visible:ring-offset-2 focus-visible:ring-offset-sim-surface", text.trim() && !busy ? "bg-sim-brand" : "bg-sim-brand/45")}>
             <ArrowUp className="h-[17px] w-[17px]" strokeWidth={1.9} aria-hidden="true" />
           </button>
         </form>
-        <button type="button" onClick={() => openSheet({ kind: "askMonth" })} className="mt-[20.5px] flex items-center gap-1.5 rounded-md text-[11.8px] leading-4 text-sim-muted outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:opacity-60">
+        <button type="button" onClick={() => openSheet({ kind: "askMonth" })} className="sim-hit mt-[20.5px] flex items-center gap-1.5 rounded-md text-[11.8px] leading-4 text-sim-muted outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:opacity-60">
           Answers cover <span className="font-medium text-sim-ink">{monthLabel(state.askMonth)}</span>
           <ChevronDown className="h-[14px] w-[14px] text-sim-ink" strokeWidth={1.6} aria-hidden="true" />
         </button>

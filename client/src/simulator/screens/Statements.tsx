@@ -36,7 +36,7 @@ export default function Statements() {
     <Screen header={<Header title={<span className="text-[12.8px] text-sim-muted">{CARD_KEYS.length} cards · {total} statements</span>} />}>
       <div className="flex items-baseline justify-between px-5 pt-[20px]">
         <h1 className="text-[29px] font-semibold leading-9">Statements</h1>
-        <button type="button" onClick={() => openSheet({ kind: "add" })} className="relative top-[2.3px] flex items-center gap-[10px] rounded-md py-1 pl-1 text-[14.7px] font-medium leading-5 text-sim-brand outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:opacity-60">
+        <button type="button" onClick={() => openSheet({ kind: "add" })} className="sim-hit relative top-[2.3px] flex items-center gap-[10px] rounded-md py-1 pl-1 text-[14.7px] font-medium leading-5 text-sim-brand outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:opacity-60">
           Add <Plus className="h-[16px] w-[16px]" strokeWidth={1.6} aria-hidden="true" />
         </button>
       </div>

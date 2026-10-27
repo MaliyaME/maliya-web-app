@@ -39,7 +39,7 @@ function Rings({ className }: { className?: string }) {
   );
 }
 
-export function Wallpaper({ variant }: { variant: "lock" | "desktop" }) {
+export function Wallpaper({ variant, paused = false }: { variant: "lock" | "desktop"; paused?: boolean }) {
   if (variant === "lock") {
     return (
       <div className="absolute inset-0 overflow-hidden bg-[#02281f]" aria-hidden="true">
@@ -54,7 +54,7 @@ export function Wallpaper({ variant }: { variant: "lock" | "desktop" }) {
     <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
       <div className="absolute inset-0 dark:hidden" style={{ background: desktopLight }} />
       <div className="absolute inset-0 hidden dark:block" style={{ background: desktopDark }} />
-      <div className="os-breathe absolute -bottom-[30vmax] -right-[18vmax] h-[80vmax] w-[80vmax] rounded-full bg-[radial-gradient(closest-side,rgba(0,91,70,0.26),transparent)] dark:bg-[radial-gradient(closest-side,rgba(24,140,108,0.30),transparent)]" />
+      <div className={cn("os-breathe absolute -bottom-[30vmax] -right-[18vmax] h-[80vmax] w-[80vmax] rounded-full bg-[radial-gradient(closest-side,rgba(0,91,70,0.26),transparent)] dark:bg-[radial-gradient(closest-side,rgba(24,140,108,0.30),transparent)]", paused && "os-paused")} />
       <Rings className="text-[#005b46]/[0.15] dark:text-[#bdd5c4]/[0.14]" />
       <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: grain }} />
     </div>

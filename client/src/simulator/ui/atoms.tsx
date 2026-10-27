@@ -65,7 +65,7 @@ export function GreenLink({ children, onClick, className }: { children: ReactNod
     <button
       type="button"
       onClick={onClick}
-      className={cn("inline-flex items-center gap-[9px] rounded-md text-left text-[14.7px] font-medium leading-5 text-sim-brand outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:opacity-60", className)}
+      className={cn("sim-hit inline-flex items-center gap-[9px] rounded-md text-left text-[14.7px] font-medium leading-5 text-sim-brand outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:opacity-60", className)}
     >
       {children}
       <ArrowRight className="h-[15px] w-[15px] shrink-0" strokeWidth={1.6} aria-hidden="true" />

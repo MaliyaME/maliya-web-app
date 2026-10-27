@@ -27,7 +27,7 @@ export function Header({
             <button
               type="button"
               onClick={nav.back}
-              className="-ml-[3.7px] flex h-10 items-center gap-[7px] rounded-lg pl-1 pr-2.5 text-[13.1px] text-sim-muted outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:bg-sim-press"
+              className="sim-hit -ml-[3.7px] flex h-10 items-center gap-[7px] rounded-lg pl-1 pr-2.5 text-[13.1px] text-sim-muted [--hit-x:4px] [--hit-y:2px] outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:bg-sim-press"
             >
               <ChevronLeft className="h-[20px] w-[20px] text-sim-ink/80" strokeWidth={1.6} aria-hidden="true" />
               {back}
@@ -42,7 +42,7 @@ export function Header({
               type="button"
               aria-label="Settings"
               onClick={() => openSheet({ kind: "settings" })}
-              className="flex h-10 w-10 items-center justify-center rounded-full text-sim-ink outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:bg-sim-press"
+              className="sim-hit flex h-10 w-10 items-center justify-center rounded-full text-sim-ink outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:bg-sim-press [--hit-x:2px] [--hit-y:2px]"
             >
               <Settings2 className="h-[24px] w-[24px]" strokeWidth={1.4} aria-hidden="true" />
             </button>

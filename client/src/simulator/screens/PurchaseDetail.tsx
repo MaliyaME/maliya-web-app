@@ -37,7 +37,7 @@ export function PurchaseDetail({ id }: { id: number }) {
             <button
               type="button"
               onClick={() => openSheet({ kind: "edit", id: p.id })}
-              className="mr-[8px] rounded-md px-1 py-2 text-[12.5px] text-sim-muted outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:opacity-60"
+              className="sim-hit mr-[8px] rounded-md px-1 py-2 text-[12.5px] text-sim-muted [--hit-x:8px] [--hit-y:2px] outline-none focus-visible:ring-2 focus-visible:ring-sim-brand active:opacity-60"
             >
               Edit
             </button>

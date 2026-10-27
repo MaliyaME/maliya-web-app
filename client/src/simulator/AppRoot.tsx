@@ -2,28 +2,26 @@ import { AnimatePresence } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { useSim } from "./context";
 import { renderRoute } from "./screens";
-import type { TabId } from "./data/types";
+import { TAB_IDS, type TabId } from "./data/types";
 import { SheetHost } from "./sheets";
 import { Stack } from "./ui/Stack";
 import { TabBar } from "./ui/TabBar";
 
-const TAB_IDS: TabId[] = ["home", "activity", "ask", "statements"];
-
 function TabLayer({ tab, active }: { tab: TabId; active: boolean }) {
-  const { state, dispatch } = useSim();
+  const { state, back } = useSim();
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     ref.current?.toggleAttribute("inert", !active);
   }, [active]);
   return (
     <div ref={ref} aria-hidden={!active} className="absolute inset-0" style={{ visibility: active ? "visible" : "hidden" }}>
-      <Stack routes={state.stacks[tab]} onPop={() => dispatch({ type: "pop" })} renderRoute={renderRoute} />
+      <Stack routes={state.stacks[tab]} onPop={back} renderRoute={renderRoute} />
     </div>
   );
 }
 
 export function AppRoot() {
-  const { state, dispatch } = useSim();
+  const { state, back } = useSim();
   const content = useRef<HTMLDivElement>(null);
   useEffect(() => {
     content.current?.toggleAttribute("inert", state.sheet !== null);
@@ -36,7 +34,7 @@ export function AppRoot() {
         // Escape steps back inside the app; from a tab's first screen it falls through and closes the window.
         if (event.key !== "Escape" || state.sheet || !canGoBack) return;
         event.stopPropagation();
-        dispatch({ type: "pop" });
+        back();
       }}
     >
       <div ref={content} className="absolute inset-0 flex flex-col">

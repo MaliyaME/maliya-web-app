@@ -53,7 +53,7 @@ export function MonthChart({
               >
                 <span className="relative h-full w-[12px] overflow-visible rounded-full bg-sim-chart">
                   <motion.span
-                    className={cn("absolute inset-x-0 bottom-0 rounded-full", active ? "bg-sim-brand shadow-[0_6px_14px_-3px_var(--s-brand)]" : "bg-sim-bar")}
+                    className={cn("absolute inset-x-0 bottom-0 rounded-full", active ? "bg-sim-brand shadow-[0_6px_14px_-3px_rgb(var(--s-brand))]" : "bg-sim-bar")}
                     initial={{ height: 0 }}
                     animate={{ height: Math.max(8, (series[month] / max) * HEIGHT) }}
                     transition={{ type: "spring", stiffness: 170, damping: 22, delay: 0.1 + i * 0.045 }}

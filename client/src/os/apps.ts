@@ -18,6 +18,8 @@ export interface AppDef {
   route: string;
   icon: IconSpec;
   size: { width: number; height: number };
+  /** On phones the app fills the screen with no sheet header, like a native app. */
+  immersive?: boolean;
   Component: ComponentType;
 }
 
@@ -36,6 +38,7 @@ export const APPS: Record<AppId, AppDef> = {
     route: "/try",
     icon: { kind: "glyph", Icon: Smartphone, from: "#5b7cf5", to: "#2a3db0" },
     size: { width: 620, height: 1100 },
+    immersive: true,
     Component: TrySimulator,
   },
   features: {

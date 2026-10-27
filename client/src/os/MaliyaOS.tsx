@@ -1,8 +1,11 @@
 import { useCallback, useEffect, useReducer, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useLocation } from "wouter";
+import { useTheme } from "@/hooks/use-theme";
 import { Desktop } from "./desktop/Desktop";
 import { APPS, appForPath } from "./apps";
+import { CHROME, paintChrome, restoreChrome } from "./chrome";
+import { pushApp, pushHome, readEntry, rewindToHome } from "./history";
 import { useMediaQuery } from "./hooks";
 import { LockScreen } from "./LockScreen";
 import { MobileHome } from "./mobile/MobileHome";
@@ -53,7 +56,9 @@ export default function MaliyaOS() {
   const [location, navigate] = useLocation();
   const layout: Layout = useMediaQuery("(min-width: 768px) and (min-height: 500px)") ? "desktop" : "mobile";
   const reduceMotion = useReducedMotion();
+  const { isDark } = useTheme();
   const shellRef = useRef<HTMLDivElement>(null);
+  const [appChrome, setAppChrome] = useState<string | null>(null);
 
   const [linkedApp] = useState(() => (location === "/" ? null : appForPath(location)));
   const [locked, setLocked] = useState(() => linkedApp === null && !wasUnlocked());
@@ -66,14 +71,30 @@ export default function MaliyaOS() {
   const stateRef = useRef(state);
   stateRef.current = state;
   const top = topWindow(state)?.id ?? null;
+  const topRef = useRef(top);
+  topRef.current = top;
+  const layoutRef = useRef(layout);
+  layoutRef.current = layout;
+  const homeTimer = useRef(0);
 
-  const openApp = useCallback(
-    (id: AppId) => {
-      dispatch({ type: "open", id, frame: frameFor(id, stateRef.current.windows.length), exclusive: layout === "mobile" });
-    },
-    [layout],
-  );
-  const closeApp = useCallback((id: AppId) => dispatch({ type: "close", id }), []);
+  // On a phone, opening an app is a history entry, so the system Back gesture returns to the home screen.
+  const openApp = useCallback((id: AppId) => {
+    const mobile = layoutRef.current === "mobile";
+    if (mobile && topRef.current !== id) pushApp(id, APPS[id].route, topRef.current !== null);
+    dispatch({ type: "open", id, frame: frameFor(id, stateRef.current.windows.length), exclusive: mobile });
+  }, []);
+
+  const closeApp = useCallback((id: AppId) => {
+    if (layoutRef.current === "mobile" && topRef.current === id) {
+      if (rewindToHome()) {
+        // The history change that follows closes the app. If the browser never reports it, close it anyway.
+        homeTimer.current = window.setTimeout(() => dispatch({ type: "close", id }), 700);
+        return;
+      }
+      pushHome();
+    }
+    dispatch({ type: "close", id });
+  }, []);
 
   const lock = useCallback(() => {
     rememberUnlocked(false);
@@ -92,8 +113,28 @@ export default function MaliyaOS() {
 
   useEffect(() => {
     const target = top ? APPS[top].route : "/";
-    if (target !== location) navigate(target, { replace: true });
+    if (window.location.pathname !== target) navigate(target, { replace: true, state: window.history.state });
   }, [top]);
+
+  useEffect(() => {
+    const onPopState = () => {
+      window.clearTimeout(homeTimer.current);
+      if (layoutRef.current !== "mobile") return;
+      const entry = readEntry();
+      const path = window.location.pathname;
+      const wanted = entry ? entry.top : path === "/" ? null : appForPath(path);
+      const id = wanted !== null && Object.prototype.hasOwnProperty.call(APPS, wanted) ? wanted : null;
+      const current = topRef.current;
+      if (id === current) return;
+      if (id) dispatch({ type: "open", id, frame: frameFor(id, stateRef.current.windows.length), exclusive: true });
+      else if (current) dispatch({ type: "close", id: current });
+    };
+    window.addEventListener("popstate", onPopState);
+    return () => {
+      window.removeEventListener("popstate", onPopState);
+      window.clearTimeout(homeTimer.current);
+    };
+  }, []);
 
   useEffect(() => {
     document.title = top && top !== "welcome" ? `${APPS[top].title} · Maliya` : "Maliya";
@@ -111,6 +152,12 @@ export default function MaliyaOS() {
     shellRef.current?.toggleAttribute("inert", locked);
   }, [locked]);
 
+  const chrome = locked ? CHROME.lock : layout === "mobile" && top && appChrome ? appChrome : isDark ? CHROME.dark : CHROME.light;
+  useEffect(() => {
+    paintChrome(chrome);
+  }, [chrome]);
+  useEffect(() => restoreChrome, []);
+
   useEffect(() => {
     if (locked) return;
     const id = window.setTimeout(() => void preloadSimulator(), 1500);
@@ -118,7 +165,7 @@ export default function MaliyaOS() {
   }, [locked]);
 
   return (
-    <OSContext.Provider value={{ layout, openApp, lock }}>
+    <OSContext.Provider value={{ layout, openApp, closeApp, lock, setChromeColor: setAppChrome }}>
       <main className="fixed inset-0 overflow-hidden bg-[#02281f]">
         <h1 className="sr-only">Maliya: your money, in focus</h1>
 
